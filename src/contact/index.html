@@ -269,7 +269,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   
   // POST to the Hermes contact proxy — update this URL after setting up a public tunnel
   // e.g. cloudflared tunnel --url http://localhost:8955
-  const PROXY_URL = 'http://localhost:8955/api/contact';
+  const PROXY_URL = 'https://contact.prismera.com.au/api/contact';
   
   try {
     const response = await fetch(PROXY_URL, {
