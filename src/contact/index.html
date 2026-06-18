@@ -267,9 +267,12 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     message: document.getElementById('message').value
   };
   
+  // POST to the Hermes contact proxy — update this URL after setting up a public tunnel
+  // e.g. cloudflared tunnel --url http://localhost:8955
+  const PROXY_URL = 'http://localhost:8955/api/contact';
+  
   try {
-    // POST to the Hermes contact proxy (see proxy.py)
-    const response = await fetch('/api/contact', {
+    const response = await fetch(PROXY_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
