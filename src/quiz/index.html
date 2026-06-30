@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Take Prismera's 60-second security self-assessment and discover how protected your business really is.">
+  <title>Security Self-Assessment — Prismera</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Google Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Material Design 3 Stylesheet -->
+  <link rel="stylesheet" href="/css/material.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/logo.png" sizes="32x32">
+  <link rel="icon" href="/assets/logo.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+
+  <style>
+    /* Quiz-specific styles */
+    .quiz-section {
+      padding: var(--md-space-3xl) 0;
+    }
+    .quiz-card {
+      background: var(--md-surface);
+      border-radius: var(--md-radius-xl);
+      padding: var(--md-space-2xl) var(--md-space-xl);
+      max-width: 640px;
+      margin: 0 auto;
+      box-shadow: var(--md-elevation-2);
+    }
+    .quiz-title {
+      font-size: var(--md-font-headline);
+      font-weight: var(--md-font-weight-bold);
+      color: var(--md-on-surface);
+      margin-bottom: var(--md-space-sm);
+      text-align: center;
+    }
+    .quiz-subtitle {
+      font-size: var(--md-font-body-large);
+      color: var(--md-on-surface-variant);
+      margin-bottom: var(--md-space-xl);
+      text-align: center;
+    }
+    .quiz-progress {
+      display: flex;
+      align-items: center;
+      gap: var(--md-space-sm);
+      margin-bottom: var(--md-space-xl);
+      width: 100%;
+    }
+    .quiz-progress__bar {
+      flex: 1;
+      height: 8px;
+      background: var(--md-surface-variant);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .quiz-progress__fill {
+      height: 100%;
+      background: var(--md-primary);
+      border-radius: 4px;
+      transition: width 0.3s ease;
+      width: 0%;
+    }
+    .quiz-progress__label {
+      font-size: var(--md-font-label);
+      color: var(--md-on-surface-variant);
+      white-space: nowrap;
+      min-width: 40px;
+      text-align: right;
+    }
+    .quiz-question {
+      font-size: var(--md-font-title);
+      font-weight: var(--md-font-weight-semibold);
+      color: var(--md-on-surface);
+      margin-bottom: var(--md-space-lg);
+      line-height: var(--md-line-height-title);
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: var(--md-space-sm);
+      margin-bottom: var(--md-space-xl);
+    }
+    .quiz-option {
+      display: flex;
+      align-items: center;
+      gap: var(--md-space-md);
+      padding: var(--md-space-md) var(--md-space-lg);
+      border: 2px solid var(--md-outline);
+      border-radius: var(--md-radius-lg);
+      cursor: pointer;
+      transition: border-color 0.2s, background-color 0.2s;
+      background: var(--md-surface);
+    }
+    .quiz-option:hover {
+      border-color: var(--md-primary);
+      background: var(--md-primary-container);
+    }
+    .quiz-option--selected {
+      border-color: var(--md-primary);
+      background: var(--md-primary-container);
+    }
+    .quiz-option__radio {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid var(--md-outline);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s;
+    }
+    .quiz-option--selected .quiz-option__radio {
+      border-color: var(--md-primary);
+    }
+    .quiz-option--selected .quiz-option__radio::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--md-primary);
+    }
+    .quiz-option__text {
+      font-size: var(--md-font-body);
+      color: var(--md-on-surface);
+      line-height: var(--md-line-height-body);
+    }
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .quiz-nav__btn {
+      font-family: inherit;
+      font-size: var(--md-font-label);
+      font-weight: var(--md-font-weight-semibold);
+      padding: 10px 24px;
+      border: none;
+      border-radius: var(--md-radius-full);
+      cursor: pointer;
+      transition: background-color 0.2s, opacity 0.2s;
+    }
+    .quiz-nav__btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .quiz-nav__btn--primary {
+      background: var(--md-primary);
+      color: var(--md-on-primary);
+    }
+    .quiz-nav__btn--primary:hover:not(:disabled) {
+      background: var(--md-primary-hover, var(--md-primary));
+      filter: brightness(1.08);
+    }
+    .quiz-nav__btn--secondary {
+      background: transparent;
+      color: var(--md-primary);
+    }
+    .quiz-nav__btn--secondary:hover:not(:disabled) {
+      background: var(--md-primary-container);
+    }
+
+    /* Email capture form */
+    .quiz-email {
+      text-align: center;
+    }
+    .quiz-email__title {
+      font-size: var(--md-font-title);
+      font-weight: var(--md-font-weight-bold);
+      color: var(--md-on-surface);
+      margin-bottom: var(--md-space-md);
+    }
+    .quiz-email__form {
+      display: flex;
+      gap: var(--md-space-sm);
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .quiz-email__input {
+      flex: 1;
+      padding: 12px 16px;
+      font-family: inherit;
+      font-size: var(--md-font-body);
+      border: 2px solid var(--md-outline);
+      border-radius: var(--md-radius-full);
+      outline: none;
+      transition: border-color 0.2s;
+      background: var(--md-surface);
+      color: var(--md-on-surface);
+    }
+    .quiz-email__input:focus {
+      border-color: var(--md-primary);
+    }
+    .quiz-email__btn {
+      font-family: inherit;
+      font-size: var(--md-font-label);
+      font-weight: var(--md-font-weight-semibold);
+      padding: 12px 24px;
+      border: none;
+      border-radius: var(--md-radius-full);
+      background: var(--md-primary);
+      color: var(--md-on-primary);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: filter 0.2s;
+    }
+    .quiz-email__btn:hover {
+      filter: brightness(1.08);
+    }
+
+    /* Results */
+    .quiz-results {
+      text-align: center;
+    }
+    .quiz-results__circle {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      margin: 0 auto var(--md-space-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .quiz-results__circle-inner {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: var(--md-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .quiz-results__score {
+      font-size: 42px;
+      font-weight: var(--md-font-weight-bold);
+      color: var(--md-on-surface);
+      line-height: 1;
+    }
+    .quiz-results__score small {
+      font-size: 18px;
+      font-weight: var(--md-font-weight-medium);
+    }
+    .quiz-results__level {
+      font-size: var(--md-font-headline);
+      font-weight: var(--md-font-weight-bold);
+      margin-bottom: var(--md-space-sm);
+    }
+    .quiz-results__explanation {
+      font-size: var(--md-font-body);
+      color: var(--md-on-surface-variant);
+      line-height: var(--md-line-height-body);
+      max-width: 480px;
+      margin: 0 auto var(--md-space-xl);
+    }
+    .quiz-results__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--md-space-md);
+    }
+    .quiz-results__link {
+      font-size: var(--md-font-body);
+      color: var(--md-primary);
+      text-decoration: none;
+      font-weight: var(--md-font-weight-medium);
+    }
+    .quiz-results__link:hover {
+      text-decoration: underline;
+    }
+
+    /* Utility */
+    .quiz-hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 520px) {
+      .quiz-email__form {
+        flex-direction: column;
+      }
+      .quiz-email__btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Prismera Shared Header -->
+<header class="md-header">
+  <div class="md-container md-header__inner">
+    <a href="/" class="md-header__logo">
+      <img src="/assets/logo.png" alt="Prismera" width="40" height="40">
+      Prismera
+    </a>
+    <button class="md-hamburger" id="nav-toggle" aria-label="Toggle navigation">
+      <span class="md-hamburger__icon"></span>
+    </button>
+    <nav class="md-nav" id="main-nav">
+      <a href="/" class="md-nav__link" data-page="home">Home</a>
+      <a href="/about-us/" class="md-nav__link" data-page="about-us">About Us</a>
+      <a href="/services/" class="md-nav__link" data-page="services">Services</a>
+      <a href="/reviews/" class="md-nav__link" data-page="reviews">Reviews</a>
+      <a href="/blog/" class="md-nav__link" data-page="blog">Blog</a>
+      <a href="/contact/" class="md-nav__link" data-page="contact">Contact</a>
+      <div class="md-nav__cta">
+        <a href="/health-check/" class="md-button md-button--filled">Free IT Health Check</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+(function() {
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() {
+      nav.classList.toggle('md-nav--open');
+    });
+  }
+
+  var path = window.location.pathname.replace(/\/$/, '') || '/';
+  var links = document.querySelectorAll('.md-nav__link[data-page]');
+  links.forEach(function(link) {
+    var page = link.getAttribute('data-page');
+    if (page === 'home' && path === '/') {
+      link.classList.add('md-nav__link--active');
+    } else if (page !== 'home' && path.indexOf('/' + page) === 0) {
+      link.classList.add('md-nav__link--active');
+    }
+  });
+})();
+</script>
+
+<div class="md-body">
+
+  <!-- ===== QUIZ SECTION ===== -->
+  <section class="quiz-section">
+    <div class="md-container">
+
+      <!-- STATE 1: Quiz Questions -->
+      <div id="quiz-state" class="quiz-card">
+
+        <!-- Questions -->
+        <div id="quiz-question-0" class="quiz-slide">
+          <div class="quiz-question">How often is your business data backed up?</div>
+          <div class="quiz-options" data-question="0">
+            <div class="quiz-option" data-points="3">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">Daily, with test restores</span>
+            </div>
+            <div class="quiz-option" data-points="2">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">Daily, no test restores</span>
+            </div>
+            <div class="quiz-option" data-points="1">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">Weekly or less</span>
+            </div>
+            <div class="quiz-option" data-points="0">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">I'm not sure</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="quiz-question-1" class="quiz-slide quiz-hidden">
+          <div class="quiz-question">Do your staff use unique passwords + multi-factor authentication?</div>
+          <div class="quiz-options" data-question="1">
+            <div class="quiz-option" data-points="3">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">Yes, enforced by policy with MFA everywhere</span>
+            </div>
+            <div class="quiz-option" data-points="2">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">MFA on email only</span>
+            </div>
+            <div class="quiz-option" data-points="1">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">Unique passwords only, no MFA</span>
+            </div>
+            <div class="quiz-option" data-points="0">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">Shared passwords / I'm not sure</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="quiz-question-2" class="quiz-slide quiz-hidden">
+          <div class="quiz-question">How do you manage antivirus and software updates?</div>
+          <div class="quiz-options" data-question="2">
+            <div class="quiz-option" data-points="3">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">Centralised management, auto-updates enforced</span>
+            </div>
+            <div class="quiz-option" data-points="2">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">Auto-updates on, no central oversight</span>
+            </div>
+            <div class="quiz-option" data-points="1">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">Manual updates, occasionally</span>
+            </div>
+            <div class="quiz-option" data-points="0">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">I rely on staff to manage their own</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="quiz-question-3" class="quiz-slide quiz-hidden">
+          <div class="quiz-question">What email security do you have in place?</div>
+          <div class="quiz-options" data-question="3">
+            <div class="quiz-option" data-points="3">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">Advanced threat protection + phishing simulations</span>
+            </div>
+            <div class="quiz-option" data-points="2">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">Spam filtering only</span>
+            </div>
+            <div class="quiz-option" data-points="1">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">Built-in email security</span>
+            </div>
+            <div class="quiz-option" data-points="0">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">No specific email security / I'm not sure</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="quiz-question-4" class="quiz-slide quiz-hidden">
+          <div class="quiz-question">Who manages remote access to your systems?</div>
+          <div class="quiz-options" data-question="4">
+            <div class="quiz-option" data-points="3">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">VPN with MFA, access reviewed quarterly</span>
+            </div>
+            <div class="quiz-option" data-points="2">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">VPN only</span>
+            </div>
+            <div class="quiz-option" data-points="1">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">Remote desktop / TeamViewer</span>
+            </div>
+            <div class="quiz-option" data-points="0">
+              <div class="quiz-option__radio"></div>
+              <span class="quiz-option__text">No formal remote access policy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email capture (shown after Q5) -->
+        <div id="quiz-email-capture" class="quiz-email quiz-hidden">
+          <h2 class="quiz-email__title">Enter your email to see your Security Score</h2>
+          <div class="quiz-email__form">
+            <input type="email" id="quiz-email-input" class="quiz-email__input" placeholder="you@company.com" required>
+            <button id="quiz-email-btn" class="quiz-email__btn" onclick="showResults()">See My Results →</button>
+          </div>
+        </div>
+
+        <!-- Progress bar & navigation -->
+        <div id="quiz-controls">
+          <div class="quiz-progress">
+            <div class="quiz-progress__bar">
+              <div class="quiz-progress__fill" id="quiz-progress-fill"></div>
+            </div>
+            <span class="quiz-progress__label" id="quiz-progress-label">1/5</span>
+          </div>
+          <div class="quiz-nav">
+            <button id="quiz-prev-btn" class="quiz-nav__btn quiz-nav__btn--secondary quiz-hidden">← Back</button>
+            <button id="quiz-next-btn" class="quiz-nav__btn quiz-nav__btn--primary" disabled>Next →</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- STATE 2: Results -->
+      <div id="results-state" class="quiz-card quiz-hidden">
+        <div class="quiz-results">
+          <div class="quiz-results__circle" id="results-circle">
+            <div class="quiz-results__circle-inner">
+              <div class="quiz-results__score" id="results-score">0<small>%</small></div>
+            </div>
+          </div>
+          <div class="quiz-results__level" id="results-level"></div>
+          <p class="quiz-results__explanation" id="results-explanation"></p>
+          <div class="quiz-results__actions">
+            <a href="/health-check/" class="md-button md-button--filled md-button--large">Book Your Free IT Health Check →</a>
+            <a href="/services/" class="quiz-results__link">Or learn more about our services →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div><!-- /md-body -->
+
+<!-- Prismera Shared Footer -->
+<footer class="md-footer">
+  <div class="md-container">
+    <div class="md-footer__grid">
+      <div class="md-footer__brand">
+        <img src="/assets/logo.png" alt="Prismera" width="36" height="36">
+        <p>Enterprise-grade IT services and digital transformation for Australian businesses. Security, cloud, and strategy under one roof.</p>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Services</h4>
+        <div class="md-footer__links">
+          <a href="/services/">Managed IT</a>
+          <a href="/services/">Cybersecurity</a>
+          <a href="/services/">Cloud Solutions</a>
+          <a href="/services/">Digital Strategy</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Company</h4>
+        <div class="md-footer__links">
+          <a href="/about-us/">About Us</a>
+          <a href="/blog/">Blog</a>
+          <a href="/contact/">Contact</a>
+          <a href="/contact/">Privacy Policy</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Contact</h4>
+        <div class="md-footer__links">
+          <a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a>
+          <span style="color:var(--md-on-surface-muted);font-size:var(--md-font-label)">Melbourne, Australia</span>
+        </div>
+      </div>
+    </div>
+    <div class="md-footer__bottom">
+      <p>&copy; 2025 Prismera Pty Ltd. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ---- Quiz State ----
+var TOTAL_QUESTIONS = 5;
+var currentQuestion = 0;
+var scores = [null, null, null, null, null]; // selected points per question, null if unanswered
+
+// ---- DOM refs ----
+var quizState = document.getElementById('quiz-state');
+var resultsState = document.getElementById('results-state');
+var progressFill = document.getElementById('quiz-progress-fill');
+var progressLabel = document.getElementById('quiz-progress-label');
+var prevBtn = document.getElementById('quiz-prev-btn');
+var nextBtn = document.getElementById('quiz-next-btn');
+var emailCapture = document.getElementById('quiz-email-capture');
+var quizControls = document.getElementById('quiz-controls');
+
+// ---- Show a specific question slide ----
+function showQuestion(index) {
+  // Hide all question slides
+  for (var i = 0; i < TOTAL_QUESTIONS; i++) {
+    var slide = document.getElementById('quiz-question-' + i);
+    if (slide) slide.classList.add('quiz-hidden');
+  }
+  // Show the target slide
+  var target = document.getElementById('quiz-question-' + index);
+  if (target) target.classList.remove('quiz-hidden');
+
+  // Update progress
+  progressFill.style.width = ((index + 1) / TOTAL_QUESTIONS * 100) + '%';
+  progressLabel.textContent = (index + 1) + '/' + TOTAL_QUESTIONS;
+
+  // Show/hide prev button
+  if (index === 0) {
+    prevBtn.classList.add('quiz-hidden');
+  } else {
+    prevBtn.classList.remove('quiz-hidden');
+  }
+
+  // Update next button text & state
+  if (index === TOTAL_QUESTIONS - 1) {
+    nextBtn.textContent = 'Finish →';
+  } else {
+    nextBtn.textContent = 'Next →';
+  }
+
+  // Enable/disable next based on whether current question is answered
+  if (scores[index] !== null) {
+    nextBtn.disabled = false;
+  } else {
+    nextBtn.disabled = true;
+  }
+
+  currentQuestion = index;
+
+  // Restore visual selection if answered
+  var options = document.querySelectorAll('#quiz-question-' + index + ' .quiz-option');
+  options.forEach(function(opt) {
+    if (scores[index] !== null && parseInt(opt.getAttribute('data-points')) === scores[index]) {
+      opt.classList.add('quiz-option--selected');
+    } else {
+      opt.classList.remove('quiz-option--selected');
+    }
+  });
+}
+
+// ---- Option click handler ----
+document.querySelectorAll('.quiz-options').forEach(function(group) {
+  group.addEventListener('click', function(e) {
+    var option = e.target.closest('.quiz-option');
+    if (!option) return;
+
+    var qIndex = parseInt(group.getAttribute('data-question'));
+    var points = parseInt(option.getAttribute('data-points'));
+
+    // Update visual selection
+    group.querySelectorAll('.quiz-option').forEach(function(opt) {
+      opt.classList.remove('quiz-option--selected');
+    });
+    option.classList.add('quiz-option--selected');
+
+    // Store score
+    scores[qIndex] = points;
+    nextBtn.disabled = false;
+  });
+});
+
+// ---- Navigation ----
+nextBtn.addEventListener('click', function() {
+  if (scores[currentQuestion] === null) return;
+
+  if (currentQuestion < TOTAL_QUESTIONS - 1) {
+    showQuestion(currentQuestion + 1);
+  } else {
+    // All questions answered, show email capture
+    document.querySelectorAll('.quiz-slide').forEach(function(s) {
+      s.classList.add('quiz-hidden');
+    });
+    quizControls.classList.add('quiz-hidden');
+    emailCapture.classList.remove('quiz-hidden');
+  }
+});
+
+prevBtn.addEventListener('click', function() {
+  if (currentQuestion > 0) {
+    showQuestion(currentQuestion - 1);
+  }
+});
+
+// ---- Email submit → Results ----
+function showResults() {
+  var emailInput = document.getElementById('quiz-email-input');
+  var email = emailInput.value.trim();
+
+  if (!email || email.indexOf('@') === -1) {
+    emailInput.style.borderColor = '#e53935';
+    emailInput.focus();
+    return;
+  }
+
+  // Hide quiz state, show results state
+  quizState.classList.add('quiz-hidden');
+  resultsState.classList.remove('quiz-hidden');
+
+  // Calculate score
+  var totalScore = scores.reduce(function(sum, s) { return sum + (s !== null ? s : 0); }, 0);
+  var percentage = Math.round(totalScore / (TOTAL_QUESTIONS * 3) * 100);
+
+  var level, levelColor, explanation;
+
+  if (percentage <= 40) {
+    level = '🔴 High Risk';
+    levelColor = '#e53935';
+    explanation = 'Your business has significant security gaps that need immediate attention. Without proper backups, access controls, and threat protection, your organisation is vulnerable to data loss, breaches, and ransomware. The good news: these are all fixable with the right partner.';
+  } else if (percentage <= 70) {
+    level = '🟡 Moderate Risk';
+    levelColor = '#f9a825';
+    explanation = 'You\'ve got some basics covered, but there are important gaps to close. A few targeted improvements — like enforcing MFA everywhere or centralising your patch management — can dramatically reduce your risk exposure.';
+  } else {
+    level = '🟢 Well Protected';
+    levelColor = '#43a047';
+    explanation = 'You\'re ahead of most SMBs — your security foundations are strong. A health check can help find the last 10%: fine-tuning your configurations, verifying your backups actually restore, and staying ahead of evolving threats.';
+  }
+
+  // Update results DOM
+  document.getElementById('results-score').innerHTML = percentage + '<small>%</small>';
+  document.getElementById('results-level').textContent = level;
+  document.getElementById('results-level').style.color = levelColor;
+  document.getElementById('results-explanation').textContent = explanation;
+
+  // Style the circle with a gradient
+  var circle = document.getElementById('results-circle');
+  if (percentage <= 40) {
+    circle.style.background = 'conic-gradient(#e53935 0deg ' + (percentage / 100 * 360) + 'deg, #e8e8e8 ' + (percentage / 100 * 360) + 'deg 360deg)';
+  } else if (percentage <= 70) {
+    circle.style.background = 'conic-gradient(#f9a825 0deg ' + (percentage / 100 * 360) + 'deg, #e8e8e8 ' + (percentage / 100 * 360) + 'deg 360deg)';
+  } else {
+    circle.style.background = 'conic-gradient(#43a047 0deg ' + (percentage / 100 * 360) + 'deg, #e8e8e8 ' + (percentage / 100 * 360) + 'deg 360deg)';
+  }
+
+  // Optional: log or send email somewhere (placeholder)
+  console.log('Quiz completed. Score: ' + percentage + '%. Email: ' + email + '. Raw points: ' + totalScore + '/' + (TOTAL_QUESTIONS * 3));
+}
+
+// Allow Enter key on email input
+document.getElementById('quiz-email-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    showResults();
+  }
+});
+
+// ---- Init ----
+showQuestion(0);
+</script>
+
+</body>
+</html>
