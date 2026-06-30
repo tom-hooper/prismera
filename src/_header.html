@@ -1,0 +1,48 @@
+<!-- Prismera Shared Header -->
+<header class="md-header">
+  <div class="md-container md-header__inner">
+    <a href="/" class="md-header__logo">
+      <img src="/assets/logo.png" alt="Prismera" width="40" height="40">
+      Prismera
+    </a>
+    <button class="md-hamburger" id="nav-toggle" aria-label="Toggle navigation">
+      <span class="md-hamburger__icon"></span>
+    </button>
+    <nav class="md-nav" id="main-nav">
+      <a href="/" class="md-nav__link" data-page="home">Home</a>
+      <a href="/about-us/" class="md-nav__link" data-page="about-us">About Us</a>
+      <a href="/services/" class="md-nav__link" data-page="services">Services</a>
+      <a href="/reviews/" class="md-nav__link" data-page="reviews">Reviews</a>
+      <a href="/blog/" class="md-nav__link" data-page="blog">Blog</a>
+      <a href="/contact/" class="md-nav__link" data-page="contact">Contact</a>
+      <div class="md-nav__cta">
+        <a href="/contact/" class="md-button md-button--filled">Get Started</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+(function() {
+  // Mobile nav toggle
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() {
+      nav.classList.toggle('md-nav--open');
+    });
+  }
+
+  // Active link highlighting
+  var path = window.location.pathname.replace(/\/$/, '') || '/';
+  var links = document.querySelectorAll('.md-nav__link[data-page]');
+  links.forEach(function(link) {
+    var page = link.getAttribute('data-page');
+    if (page === 'home' && path === '/') {
+      link.classList.add('md-nav__link--active');
+    } else if (page !== 'home' && path.indexOf('/' + page) === 0) {
+      link.classList.add('md-nav__link--active');
+    }
+  });
+})();
+</script>
