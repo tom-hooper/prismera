@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cyber insurance isn't just for banks. Here's what Australian SMBs need to know about coverage, premiums, and the security baseline most insurers now require before they'll quote.">
+  <title>Do I Need Cyber Insurance for My Small Business? — Prismera Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/css/material.css">
+
+  <style>
+    .blog-article { max-width: 740px; margin: 0 auto; padding: var(--md-space-3xl) var(--md-space-lg); }
+    .blog-article h1 { font-size: var(--md-font-headline); line-height: 1.25; margin-bottom: var(--md-space-md); }
+    .blog-article h2 { font-size: 1.5rem; margin: var(--md-space-2xl) 0 var(--md-space-md); padding-top: var(--md-space-lg); border-top: 1px solid var(--md-outline); }
+    .blog-article h3 { font-size: 1.15rem; margin: var(--md-space-lg) 0 var(--md-space-sm); }
+    .blog-article p { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); }
+    .blog-article ul, .blog-article ol { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); padding-left: 1.5rem; }
+    .blog-article ul li, .blog-article ol li { margin-bottom: var(--md-space-sm); }
+    .blog-article strong { color: var(--md-on-surface); }
+    .blog-article blockquote { border-left: 4px solid var(--md-primary); padding: var(--md-space-md) var(--md-space-lg); margin: var(--md-space-xl) 0; background: var(--md-surface-variant); border-radius: 0 var(--md-shape-sm) var(--md-shape-sm) 0; font-style: italic; color: #555; }
+    .blog-meta { color: var(--md-on-surface-muted); font-size: var(--md-font-label); margin-bottom: var(--md-space-xl); display: flex; gap: var(--md-space-lg); flex-wrap: wrap; }
+    .blog-hero-img { width: 100%; height: 360px; object-fit: cover; border-radius: var(--md-shape-lg); margin-bottom: var(--md-space-xl); box-shadow: var(--md-elevation-2); }
+    .blog-cta-box { background: var(--md-primary-container); border-radius: var(--md-shape-lg); padding: var(--md-space-xl); margin: var(--md-space-2xl) 0; text-align: center; }
+    .blog-cta-box h3 { color: var(--md-on-primary-container); margin-bottom: var(--md-space-sm); }
+    .blog-cta-box p { color: #004D40; margin-bottom: var(--md-space-lg); }
+    .highlight-box { background: #FFF8E1; border: 1px solid #FFE082; border-radius: var(--md-shape-sm); padding: var(--md-space-lg); margin: var(--md-space-lg) 0; }
+    .highlight-box h4 { color: #E65100; margin-bottom: var(--md-space-xs); }
+    @media (max-width: 600px) {
+      .blog-article h1 { font-size: 1.75rem; }
+      .blog-article p, .blog-article ul, .blog-article ol { font-size: var(--md-font-body); }
+      .blog-hero-img { height: 220px; }
+    }
+  </style>
+
+  <link rel="icon" href="/assets/logo.png" sizes="32x32">
+  <link rel="icon" href="/assets/logo.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+</head>
+<body>
+
+<header class="md-header">
+  <div class="md-container md-header__inner">
+    <a href="/" class="md-header__logo">
+      <img src="/assets/logo.png" alt="Prismera" width="40" height="40">
+      Prismera
+    </a>
+    <button class="md-hamburger" id="nav-toggle" aria-label="Toggle navigation">
+      <span class="md-hamburger__icon"></span>
+    </button>
+    <nav class="md-nav" id="main-nav">
+      <a href="/" class="md-nav__link" data-page="home">Home</a>
+      <a href="/about-us/" class="md-nav__link" data-page="about-us">About Us</a>
+      <a href="/services/" class="md-nav__link" data-page="services">Services</a>
+      <a href="/reviews/" class="md-nav__link" data-page="reviews">Reviews</a>
+      <a href="/blog/" class="md-nav__link" data-page="blog">Blog</a>
+      <a href="/contact/" class="md-nav__link" data-page="contact">Contact</a>
+      <div class="md-nav__cta">
+        <a href="/health-check/" class="md-button md-button--filled">Free IT Health Check</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+(function() {
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() { nav.classList.toggle('md-nav--open'); });
+  }
+  var path = window.location.pathname.replace(/\/$/, '') || '/';
+  document.querySelectorAll('.md-nav__link[data-page]').forEach(function(link) {
+    var page = link.getAttribute('data-page');
+    if ((page === 'home' && path === '/') || (page !== 'home' && path.indexOf('/' + page) === 0)) {
+      link.classList.add('md-nav__link--active');
+    }
+  });
+})();
+</script>
+
+<div class="md-body">
+
+  <article class="blog-article">
+
+    <div class="blog-meta">
+      <span>July 2026</span>
+      <span>&middot;</span>
+      <span>5 min read</span>
+      <span>&middot;</span>
+      <span>Business Strategy</span>
+    </div>
+
+    <h1>Do I Need Cyber Insurance for My Small Business?</h1>
+
+    <img src="/assets/img/digital.jpg" alt="Cyber insurance concept" class="blog-hero-img">
+
+    <p>Five years ago, cyber insurance was something only banks and hospitals bought. Today, Australian insurers are writing cyber policies for businesses with five employees. The market has changed fast — and if you're running a Melbourne SMB, you need to understand what's happening, because the question is shifting from "should I get it?" to "will anyone <em>insure</em> me?"</p>
+
+    <h2>What Cyber Insurance Actually Covers</h2>
+
+    <p>Cyber insurance isn't one product. It's a bundle of coverages that typically includes:</p>
+
+    <ul>
+      <li><strong>Incident response costs:</strong> Forensic investigation, legal advice, crisis communication — the experts you need the moment an attack is detected.</li>
+      <li><strong>Business interruption:</strong> Lost revenue while your systems are down. For a business doing $50K/month in online orders, two weeks of downtime is a $25K hit.</li>
+      <li><strong>Data restoration:</strong> The cost of recovering or rebuilding corrupted data, including emergency IT labour.</li>
+      <li><strong>Ransom payments:</strong> Some policies cover ransom payments and the negotiation costs (though this is increasingly restricted).</li>
+      <li><strong>Legal liability and regulatory fines:</strong> If customer data is breached, you may face lawsuits and OAIC penalties. Legal defence alone can exceed $100K.</li>
+      <li><strong>Notification costs:</strong> Under the Notifiable Data Breaches scheme, you may be required to notify affected individuals. Printing, postage, call-centre setup, and credit monitoring for affected customers add up fast.</li>
+    </ul>
+
+    <div class="highlight-box">
+      <h4>Real Example</h4>
+      <p style="margin:0;">A Melbourne-based accounting firm with 12 staff was hit by a Business Email Compromise attack. The attacker impersonated the managing partner and directed a $48,000 payment to a fraudulent account. Their cyber policy covered the full loss plus forensic investigation costs — total claim: $71,000. Without insurance, that's coming out of the partner's pocket.</p>
+    </div>
+
+    <h2>What Insurers Are Now Demanding (And Why It Matters)</h2>
+
+    <p>Here's the part most SMB owners don't know: <strong>you can't just buy a policy anymore.</strong> Insurers have been burned by a wave of claims and are now requiring applicants to demonstrate a baseline level of security before they'll even quote.</p>
+
+    <p>The standard requirements now include:</p>
+
+    <ul>
+      <li><strong>Multi-factor authentication on all email and remote access:</strong> This is non-negotiable. If you don't have MFA, you won't get a quote.</li>
+      <li><strong>Tested, offline backups:</strong> "We back up to an external drive that sits next to the server" isn't going to cut it. Insurers want air-gapped or immutable backups that ransomware can't reach.</li>
+      <li><strong>Endpoint detection and response (EDR):</strong> Traditional antivirus is no longer considered adequate. Insurers expect active threat detection on all endpoints.</li>
+      <li><strong>Patch management:</strong> A documented process for applying security updates within defined timeframes — typically 14 days for critical patches.</li>
+      <li><strong>Security awareness training:</strong> Your staff need to be trained to recognise phishing. Most insurers require annual training with phishing simulation testing.</li>
+    </ul>
+
+    <blockquote>
+      Think of it like car insurance: you can't get comprehensive coverage if your car doesn't have working brakes. Cyber insurers are applying the same logic — show us you've done the basics, then we'll talk.
+    </blockquote>
+
+    <h2>How Much Does It Cost?</h2>
+
+    <p>For a typical Melbourne SMB with 10-50 staff and $1M-$5M in coverage:</p>
+
+    <ul>
+      <li><strong>Premium:</strong> $1,500–$5,000 per year, depending on your industry, security posture, and claims history.</li>
+      <li><strong>Excess:</strong> Typically $2,500–$10,000 per claim.</li>
+    </ul>
+
+    <p>Premiums have risen 30-50% year-on-year since 2021, driven by the surge in ransomware claims. But the cost of <em>not</em> having coverage — a single incident that costs $150K+ — dwarfs the premium.</p>
+
+    <h2>Do You Need It?</h2>
+
+    <p>Ask yourself three questions:</p>
+
+    <ol>
+      <li><strong>Do you hold customer data?</strong> Names, emails, phone numbers, payment details — if you have any of these, you have exposure under the Privacy Act.</li>
+      <li><strong>Could your business survive two weeks of downtime?</strong> If the answer is "barely" or "no," you need business interruption coverage.</li>
+      <li><strong>Do you rely on email to send or receive payments?</strong> Business Email Compromise is the most common — and most lucrative — attack against SMBs. If you move money via email instructions, you are a target.</li>
+    </ol>
+
+    <p>If you answered "yes" to any of these, cyber insurance should be on your radar. If you answered "yes" to two or more, it should be a priority.</p>
+
+    <h2>How to Get Insurable</h2>
+
+    <p>The good news: the security baseline insurers require is the same baseline that actually protects your business. It's not a box-ticking exercise — it's the minimum effective defence against the threats that are actually hitting Australian SMBs right now.</p>
+
+    <p>Here's the three-step path:</p>
+
+    <ol>
+      <li><strong>Get an honest assessment of your current security posture.</strong> You can't fix what you don't know is broken.</li>
+      <li><strong>Close the gaps the insurer is going to ask about.</strong> MFA, backups, patching, EDR — in that order.</li>
+      <li><strong>Approach a broker who specialises in cyber insurance for SMBs.</strong> Generic business insurance brokers often don't understand the cyber market.</li>
+    </ol>
+
+    <div class="blog-cta-box">
+      <h3>Get insurable — start with a free health check</h3>
+      <p>We'll audit your security posture against the standard insurer requirements and tell you exactly what needs attention. No obligation, no pitch — just a clear one-page report.</p>
+      <a href="/health-check/" class="md-button md-button--filled md-button--large">Book Your Free Health Check</a>
+    </div>
+
+    <p><em>Disclaimer: This article provides general information and does not constitute insurance or legal advice. Consult a licensed insurance broker and legal professional for advice specific to your situation.</em></p>
+
+    <p style="margin-top:var(--md-space-2xl);">
+      <a href="/blog/" class="md-button md-button--text">← Back to all articles</a>
+      &nbsp;&nbsp;
+      <a href="/health-check/" class="md-button md-button--outlined">Book a Health Check →</a>
+    </p>
+
+  </article>
+
+</div>
+
+<footer class="md-footer">
+  <div class="md-container">
+    <div class="md-footer__grid">
+      <div class="md-footer__brand">
+        <img src="/assets/logo.png" alt="Prismera" width="36" height="36">
+        <p>Enterprise-grade IT services and digital transformation for Australian businesses. Security, cloud, and strategy under one roof.</p>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Services</h4>
+        <div class="md-footer__links">
+          <a href="/services/">Managed IT</a>
+          <a href="/services/">Cybersecurity</a>
+          <a href="/services/">Cloud Solutions</a>
+          <a href="/services/">Digital Strategy</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Company</h4>
+        <div class="md-footer__links">
+          <a href="/about-us/">About Us</a>
+          <a href="/blog/">Blog</a>
+          <a href="/contact/">Contact</a>
+          <a href="/contact/">Privacy Policy</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Contact</h4>
+        <div class="md-footer__links">
+          <a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a>
+          <span style="color:var(--md-on-surface-muted);font-size:var(--md-font-label)">Melbourne, Australia</span>
+        </div>
+      </div>
+    </div>
+    <div class="md-footer__bottom">
+      <p>&copy; 2025 Prismera Pty Ltd. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
