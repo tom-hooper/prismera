@@ -1,5 +1,5 @@
 /*
- * Prismera — Material Design 3 Stylesheet
+ * Prismera - Material Design 3 Stylesheet
  * Teal/green primary palette (zero blue)
  * No frameworks, no JavaScript frameworks, just clean CSS
  */
@@ -9,7 +9,7 @@
    ======================================== */
 
 :root {
-  /* Primary — Teal */
+  /* Primary - Teal */
   --md-primary: #00897B;
   --md-primary-dark: #00695C;
   --md-primary-light: #4DB6AC;
@@ -17,14 +17,14 @@
   --md-on-primary: #FFFFFF;
   --md-on-primary-container: #00332E;
 
-  /* Secondary — Warm Amber */
+  /* Secondary - Warm Amber */
   --md-secondary: #FF8F00;
   --md-secondary-dark: #E65100;
   --md-secondary-container: #FFE0B2;
   --md-on-secondary: #FFFFFF;
   --md-on-secondary-container: #3E1500;
 
-  /* Tertiary — Deep Teal */
+  /* Tertiary - Deep Teal */
   --md-tertiary: #006064;
   --md-tertiary-container: #B2EBF2;
   --md-on-tertiary: #FFFFFF;
@@ -59,7 +59,7 @@
   --md-elevation-4: 0 8px 16px rgba(0,0,0,0.12), 0 12px 24px rgba(0,0,0,0.08);
   --md-elevation-8: 0 16px 32px rgba(0,0,0,0.16), 0 24px 48px rgba(0,0,0,0.08);
 
-  /* Typography — Material Design Type Scale */
+  /* Typography - Material Design Type Scale */
   --md-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
   --md-font-display: 3.562rem;
   --md-font-headline: 2.25rem;
@@ -945,7 +945,7 @@ p:last-child {
 }
 
 .md-pricing-card__features li::before {
-  content: '✓';
+  content: '\2713';
   color: var(--md-success);
   font-weight: var(--md-font-weight-bold);
 }
@@ -1330,7 +1330,7 @@ textarea.md-form-input {
 }
 
 .md-service-detail__features li::before {
-  content: '✓';
+  content: '\2713';
   position: absolute;
   left: 0;
   top: 0;

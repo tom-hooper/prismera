@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Get in touch with Prismera — Melbourne-based IT services, cybersecurity, cloud solutions, and digital strategy. Call us or send a message.">
-  <title>Contact — Prismera</title>
+  <meta name="description" content="Get in touch with Prismera - Melbourne-based IT services, cybersecurity, cloud solutions, and digital strategy. Call us or send a message.">
+  <title>Contact - Prismera</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -149,7 +149,7 @@
             </div>
             <div>
               <p class="md-contact-detail__label">Phone</p>
-              <a href="tel:+61390000000" class="md-contact-detail__value" style="text-decoration:none;">03 9000 0000</a>
+              <a href="tel:+613****0000" class="md-contact-detail__value" style="text-decoration:none;">03 9000 0000</a>
             </div>
           </div>
 
@@ -175,7 +175,7 @@
             </div>
             <div>
               <p class="md-contact-detail__label">Hours</p>
-              <p class="md-contact-detail__value">Monday–Friday, 9am–5pm AEST</p>
+              <p class="md-contact-detail__value">Monday-Friday, 9am-5pm AEST</p>
             </div>
           </div>
         </div>
@@ -261,14 +261,14 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     });
     if (res.ok) {
       status.className = 'md-form-status md-form-status--success';
-      status.innerHTML = '<strong>✓ Message sent!</strong> We\'ll get back to you within one business day.';
+      status.innerHTML = '<strong>\u2713 Message sent!</strong> We\'ll get back to you within one business day.';
       this.reset();
     } else {
       throw new Error('Server error');
     }
   } catch (err) {
     status.className = 'md-form-status md-form-status--error';
-    status.innerHTML = '<strong>⚠ Couldn\'t send message.</strong> Please email us directly at <a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a>.';
+    status.innerHTML = '<strong>\u26a0 Couldn\'t send message.</strong> Please email us directly at <a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a>.';
   }
   btn.disabled = false;
   btn.textContent = 'Send Message';
