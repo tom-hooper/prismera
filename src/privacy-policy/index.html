@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prismera's Privacy Policy - how we collect, use, store and protect personal information, aligned with the Privacy Act 1988 (Cth) and the Australian Privacy Principles.">
+  <title>Privacy Policy - Prismera</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/css/material.css">
+
+  <style>
+    .privacy-page { max-width: 740px; margin: 0 auto; padding: var(--md-space-3xl) var(--md-space-lg); }
+    .privacy-page h1 { font-size: var(--md-font-headline); line-height: 1.25; margin-bottom: var(--md-space-md); }
+    .privacy-page h2 { font-size: 1.5rem; margin: var(--md-space-2xl) 0 var(--md-space-md); padding-top: var(--md-space-lg); border-top: 1px solid var(--md-outline); }
+    .privacy-page p { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); }
+    .privacy-page ul, .privacy-page ol { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); padding-left: 1.5rem; }
+    .privacy-page ul li, .privacy-page ol li { margin-bottom: var(--md-space-sm); }
+    .privacy-page strong { color: var(--md-on-surface); }
+    .privacy-meta { color: var(--md-on-surface-muted); font-size: var(--md-font-label); margin-bottom: var(--md-space-xl); }
+    @media (max-width: 600px) {
+      .privacy-page h1 { font-size: 1.75rem; }
+      .privacy-page p, .privacy-page ul, .privacy-page ol { font-size: var(--md-font-body); }
+    }
+  </style>
+
+  <link rel="icon" href="/assets/logo.png" sizes="32x32">
+  <link rel="icon" href="/assets/logo.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C9CMHS94L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-2C9CMHS94L");
+  </script>
+</head>
+<body>
+
+<header class="md-header">
+  <div class="md-container md-header__inner">
+    <a href="/" class="md-header__logo">
+      <img src="/assets/logo.png" alt="Prismera" width="40" height="40">
+      Prismera
+    </a>
+    <button class="md-hamburger" id="nav-toggle" aria-label="Toggle navigation">
+      <span class="md-hamburger__icon"></span>
+    </button>
+    <nav class="md-nav" id="main-nav">
+      <a href="/" class="md-nav__link" data-page="home">Home</a>
+      <a href="/about-us/" class="md-nav__link" data-page="about-us">About Us</a>
+      <a href="/services/" class="md-nav__link" data-page="services">Services</a>
+      <a href="/reviews/" class="md-nav__link" data-page="reviews">Reviews</a>
+      <a href="/blog/" class="md-nav__link" data-page="blog">Blog</a>
+      <a href="/contact/" class="md-nav__link" data-page="contact">Contact</a>
+      <div class="md-nav__cta">
+        <a href="/health-check/" class="md-button md-button--filled">Free IT Health Check</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+(function() {
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() { nav.classList.toggle('md-nav--open'); });
+  }
+  var path = window.location.pathname.replace(/\/$/, '') || '/';
+  document.querySelectorAll('.md-nav__link[data-page]').forEach(function(link) {
+    var page = link.getAttribute('data-page');
+    if ((page === 'home' && path === '/') || (page !== 'home' && path.indexOf('/' + page) === 0)) {
+      link.classList.add('md-nav__link--active');
+    }
+  });
+})();
+</script>
+
+<div class="md-body">
+
+  <section class="md-hero md-hero--page" style="background: linear-gradient(135deg, rgba(0,105,92,0.92) 0%, rgba(0,137,123,0.88) 100%), url('/assets/img/network.jpg') center/cover no-repeat;">
+    <div class="md-container md-hero__content">
+      <h1>Privacy Policy</h1>
+      <p>How we collect, use, store and protect your personal information</p>
+    </div>
+  </section>
+
+  <section class="md-section md-section--surface">
+    <div class="md-container">
+      <div class="privacy-page">
+
+        <p class="privacy-meta">Last updated: August 2026</p>
+
+        <p>Prismera Pty Ltd (ABN TBC) ("Prismera", "we", "us", "our") is committed to protecting your privacy. This policy explains how we handle personal information in accordance with the <strong>Privacy Act 1988 (Cth)</strong> (the Privacy Act) and the <strong>Australian Privacy Principles (APPs)</strong>, as well as the requirements of the <strong>Notifiable Data Breaches (NDB) scheme</strong>.</p>
+
+        <h2>1. The Australian Privacy Principles</h2>
+        <p>The APPs are binding privacy standards under the Privacy Act. They govern how Australian businesses and government agencies collect, use, store and disclose personal information. This policy is designed to meet those obligations, including APP 1 (open and transparent management of personal information), which requires us to maintain a clearly expressed and up-to-date privacy policy.</p>
+
+        <h2>2. What personal information we collect</h2>
+        <p>Personal information is information or an opinion about an identified individual, or an individual who is reasonably identifiable. The personal information we collect depends on how you interact with us:</p>
+        <ul>
+          <li><strong>Contact and enquiry forms:</strong> when you use the contact form on our website, we collect your name, email address, phone number (optional) and the contents of your message.</li>
+          <li><strong>IT health check and quiz:</strong> when you request a free IT health check or complete our security quiz, we collect your name, email address, company details and the answers you provide.</li>
+          <li><strong>Newsletter subscription:</strong> if you subscribe to our email updates, we collect your email address.</li>
+          <li><strong>Client service information:</strong> if you become a client, we collect the business and personal information needed to deliver our managed IT, cybersecurity, cloud and consulting services, including contact details, account credentials (stored securely), and information about your systems and users.</li>
+          <li><strong>Website usage data:</strong> we use Google Analytics to understand how visitors use our website. This includes anonymised usage statistics such as pages visited, time on site and device type. See section 10 below.</li>
+        </ul>
+
+        <h2>3. How we collect personal information</h2>
+        <p>We collect personal information directly from you in most cases: when you fill in a form on our website, email or call us, request a health check, subscribe to our newsletter, or engage us for services. We may also collect information from your systems (with your authorisation) when delivering services, and from publicly available sources where relevant to a service engagement.</p>
+        <p>Where we receive personal information about you from a third party (for example, a colleague who refers you), we will take reasonable steps to inform you that we hold that information and how it will be used.</p>
+
+        <h2>4. Why we collect, hold, use and disclose personal information</h2>
+        <p>We collect, hold, use and disclose personal information for the following purposes:</p>
+        <ul>
+          <li>to respond to enquiries and provide information about our services;</li>
+          <li>to deliver managed IT, cybersecurity, cloud and consulting services you have engaged us for;</li>
+          <li>to schedule and conduct IT health checks and assessments;</li>
+          <li>to send you requested information, including newsletter updates you have opted into;</li>
+          <li>to invoice and manage our business relationship with you;</li>
+          <li>to meet our legal, regulatory and compliance obligations (including under the Privacy Act); and</li>
+          <li>to improve our website, services and customer experience.</li>
+        </ul>
+        <p>We will not use or disclose your personal information for purposes unrelated to those listed above unless you would reasonably expect us to, the use is required or authorised by law, or you have given consent.</p>
+
+        <h2>5. Direct marketing</h2>
+        <p>If you opt in to receive marketing communications from us (for example, our newsletter), we may send you information about our services, security updates and industry insights. Every marketing email includes a simple unsubscribe mechanism. You can opt out at any time by following the unsubscribe link, or by contacting us using the details in section 11. We do not use sensitive information for direct marketing, and we do not sell or rent your personal information to third parties for their own marketing purposes.</p>
+
+        <h2>6. Disclosure of personal information</h2>
+        <p>We disclose personal information only to the extent necessary to run our business and deliver our services. This may include:</p>
+        <ul>
+          <li>our staff and contractors who need it to perform their duties;</li>
+          <li>third-party service providers who help us operate, such as our email and hosting providers (including Google Workspace for business email and Microsoft 365), payment processors, and IT security tooling vendors;</li>
+          <li>professional advisers such as accountants and lawyers, where reasonably necessary; and</li>
+          <li>government or regulatory bodies where required or authorised by law.</li>
+        </ul>
+        <p>All third parties engaged by us are required to handle personal information consistently with the Privacy Act and the APPs, or under obligations that are at least substantially similar.</p>
+
+        <h2>7. Cross-border disclosure (APP 8)</h2>
+        <p>Some of our service providers store or process data on servers located overseas. In particular, Google Analytics (used on this website) and some cloud platforms we use for service delivery may process data in the United States or other jurisdictions. Before disclosing personal information to an overseas recipient, we take reasonable steps to ensure the recipient complies with the APPs or is bound by a substantially similar privacy regime (such as the relevant data protection frameworks those providers adhere to).</p>
+
+        <h2>8. Security of personal information (APP 11)</h2>
+        <p>We take reasonable steps to protect the personal information we hold from misuse, interference, loss, and unauthorised access, modification or disclosure. These steps include:</p>
+        <ul>
+          <li>encryption of data in transit and at rest where practicable;</li>
+          <li>multi-factor authentication on administrative and email accounts;</li>
+          <li>access controls so staff only see information they need to do their job;</li>
+          <li>regular security monitoring, patching and backups; and</li>
+          <li>staff training on privacy and information handling.</li>
+        </ul>
+        <p>We also comply with the <strong>Notifiable Data Breaches (NDB) scheme</strong> under Part IIIC of the Privacy Act. If we become aware of a data breach that is likely to result in serious harm to any individual whose information we hold, we will assess the breach, take reasonable steps to contain it, and notify affected individuals and the Office of the Australian Information Commissioner (OAIC) as required by law.</p>
+
+        <h2>9. Access to and correction of personal information (APPs 12 and 13)</h2>
+        <p>You have the right to request access to the personal information we hold about you, and to ask us to correct it if it is inaccurate, out of date, incomplete, irrelevant or misleading. To make a request, contact us using the details in section 11. We will respond within a reasonable period (usually 30 days) and may need to verify your identity before providing access. In limited circumstances permitted by the Privacy Act, we may refuse a request; if we do, we will explain our reasons in writing.</p>
+
+        <h2>10. Cookies and website analytics</h2>
+        <p>Our website uses Google Analytics, a web analytics service provided by Google LLC, to collect standard internet log information and details of visitor behaviour in an anonymised form. This information is used to measure and improve our website. Google Analytics may use cookies and similar technologies, and data collected may be transmitted to and stored by Google on servers that may be located overseas. You can opt out of Google Analytics tracking by installing the Google Analytics opt-out browser add-on available at tools.google.com/dlpage/gaoptout. We do not use cookies to identify individual visitors.</p>
+
+        <h2>11. Complaints and contact</h2>
+        <p>If you have a question, concern or complaint about how we handle your personal information, please contact us:</p>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a></li>
+          <li><strong>Phone:</strong> <a href="tel:+61391231929">(03) 9123 1929</a></li>
+          <li><strong>Post:</strong> Prismera Pty Ltd, Melbourne, Victoria, Australia</li>
+        </ul>
+        <p>We will acknowledge your complaint within 5 business days and aim to resolve it within 30 days. If you are not satisfied with our response, you may lodge a complaint with the <strong>Office of the Australian Information Commissioner (OAIC)</strong> at <a href="https://www.oaic.gov.au" rel="noopener" target="_blank">www.oaic.gov.au</a> or by calling 1300 363 992.</p>
+
+        <h2>12. Changes to this policy</h2>
+        <p>We may update this policy from time to time to reflect changes in our practices, technology or legal obligations. The current version will always be available on this page, and the "Last updated" date at the top will tell you when it was most recently reviewed.</p>
+
+        <p style="margin-top:var(--md-space-2xl);">
+          <a href="/" class="md-button md-button--text">← Back to home</a>
+          &nbsp;&nbsp;
+          <a href="/contact/" class="md-button md-button--outlined">Contact Us →</a>
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="md-footer">
+  <div class="md-container">
+    <div class="md-footer__grid">
+      <div class="md-footer__brand">
+        <img src="/assets/logo.png" alt="Prismera" width="36" height="36">
+        <p>Enterprise-grade IT services and digital transformation for Australian businesses. Security, cloud, and strategy under one roof.</p>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Services</h4>
+        <div class="md-footer__links">
+          <a href="/services/">Managed IT</a>
+          <a href="/services/">Cybersecurity</a>
+          <a href="/services/">Cloud Solutions</a>
+          <a href="/services/">Digital Strategy</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Company</h4>
+        <div class="md-footer__links">
+          <a href="/about-us/">About Us</a>
+          <a href="/blog/">Blog</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Contact</h4>
+        <div class="md-footer__links">
+          <a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a>
+          <a href="tel:+61391231929">(03) 9123 1929</a>
+          <span style="color:var(--md-on-surface-muted);font-size:var(--md-font-label)">Melbourne, Australia</span>
+        </div>
+      </div>
+    </div>
+    <div class="md-footer__bottom">
+      <p>&copy; 2025 Prismera Pty Ltd. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
