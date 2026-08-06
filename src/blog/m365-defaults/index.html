@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Most Australian SMBs run on Microsoft 365, but the default settings leave them exposed. Here are the three gaps we find in almost every new client's tenant - and the two-hour fix.">
+  <title>Microsoft 365 Security: Why the Defaults Aren't Enough - Prismera Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/css/material.css">
+
+  <style>
+    .blog-article { max-width: 740px; margin: 0 auto; padding: var(--md-space-3xl) var(--md-space-lg); }
+    .blog-article h1 { font-size: var(--md-font-headline); line-height: 1.25; margin-bottom: var(--md-space-md); }
+    .blog-article h2 { font-size: 1.5rem; margin: var(--md-space-2xl) 0 var(--md-space-md); padding-top: var(--md-space-lg); border-top: 1px solid var(--md-outline); }
+    .blog-article h3 { font-size: 1.15rem; margin: var(--md-space-lg) 0 var(--md-space-sm); }
+    .blog-article p { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); }
+    .blog-article ul, .blog-article ol { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); padding-left: 1.5rem; }
+    .blog-article ul li, .blog-article ol li { margin-bottom: var(--md-space-sm); }
+    .blog-article strong { color: var(--md-on-surface); }
+    .blog-article blockquote { border-left: 4px solid var(--md-primary); padding: var(--md-space-md) var(--md-space-lg); margin: var(--md-space-xl) 0; background: var(--md-surface-variant); border-radius: 0 var(--md-shape-sm) var(--md-shape-sm) 0; font-style: italic; color: #555; }
+    .blog-meta { color: var(--md-on-surface-muted); font-size: var(--md-font-label); margin-bottom: var(--md-space-xl); display: flex; gap: var(--md-space-lg); flex-wrap: wrap; }
+    .blog-hero-img { width: 100%; height: 360px; object-fit: cover; border-radius: var(--md-shape-lg); margin-bottom: var(--md-space-xl); box-shadow: var(--md-elevation-2); }
+    .blog-cta-box { background: var(--md-primary-container); border-radius: var(--md-shape-lg); padding: var(--md-space-xl); margin: var(--md-space-2xl) 0; text-align: center; }
+    .blog-cta-box h3 { color: var(--md-on-primary-container); margin-bottom: var(--md-space-sm); }
+    .blog-cta-box p { color: #004D40; margin-bottom: var(--md-space-lg); }
+    .sign-card { background: var(--md-surface); border: 1px solid var(--md-outline); border-radius: var(--md-shape-md); padding: var(--md-space-lg); margin-bottom: var(--md-space-lg); }
+    .sign-card h3 { display: flex; align-items: center; gap: var(--md-space-sm); margin-bottom: var(--md-space-sm); }
+    .sign-card .sign-num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--md-primary); color: white; font-size: 18px; font-weight: 700; flex-shrink: 0; }
+    @media (max-width: 600px) {
+      .blog-article h1 { font-size: 1.75rem; }
+      .blog-article p, .blog-article ul, .blog-article ol { font-size: var(--md-font-body); }
+      .blog-hero-img { height: 220px; }
+    }
+  </style>
+
+  <link rel="icon" href="/assets/logo.png" sizes="32x32">
+  <link rel="icon" href="/assets/logo.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C9CMHS94L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-2C9CMHS94L");
+  </script>
+</head>
+<body>
+
+<header class="md-header">
+  <div class="md-container md-header__inner">
+    <a href="/" class="md-header__logo">
+      <img src="/assets/logo.png" alt="Prismera" width="40" height="40">
+      Prismera
+    </a>
+    <button class="md-hamburger" id="nav-toggle" aria-label="Toggle navigation">
+      <span class="md-hamburger__icon"></span>
+    </button>
+    <nav class="md-nav" id="main-nav">
+      <a href="/" class="md-nav__link" data-page="home">Home</a>
+      <a href="/about-us/" class="md-nav__link" data-page="about-us">About Us</a>
+      <a href="/services/" class="md-nav__link" data-page="services">Services</a>
+      <a href="/reviews/" class="md-nav__link" data-page="reviews">Reviews</a>
+      <a href="/blog/" class="md-nav__link" data-page="blog">Blog</a>
+      <a href="/contact/" class="md-nav__link" data-page="contact">Contact</a>
+      <div class="md-nav__cta">
+        <a href="/health-check/" class="md-button md-button--filled">Free IT Health Check</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+(function() {
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() { nav.classList.toggle('md-nav--open'); });
+  }
+  var path = window.location.pathname.replace(/\/$/, '') || '/';
+  document.querySelectorAll('.md-nav__link[data-page]').forEach(function(link) {
+    var page = link.getAttribute('data-page');
+    if ((page === 'home' && path === '/') || (page !== 'home' && path.indexOf('/' + page) === 0)) {
+      link.classList.add('md-nav__link--active');
+    }
+  });
+})();
+</script>
+
+<div class="md-body">
+
+  <article class="blog-article">
+
+    <div class="blog-meta">
+      <span>August 2026</span>
+      <span>&middot;</span>
+      <span>5 min read</span>
+      <span>&middot;</span>
+      <span>Cybersecurity</span>
+    </div>
+
+    <h1>Microsoft 365 Security: Why the Defaults Aren't Enough</h1>
+
+    <img src="/assets/img/office.jpg" alt="Microsoft 365 workspace" class="blog-hero-img">
+
+    <p>Most Australian SMBs run on Microsoft 365. Email, Teams, SharePoint, OneDrive - it's the backbone of your business. Chances are your invoices go out through it, your team collaborates in it, and your client data lives inside it.</p>
+
+    <p>Here's the problem: the default settings leave you exposed. Microsoft's out-of-the-box configuration is designed to be easy to set up, and easy means open. We review Microsoft 365 tenants as part of every client onboarding, and three issues show up in almost every single one.</p>
+
+    <h2>The Three Gaps We Find in Almost Every Tenant</h2>
+
+    <div class="sign-card">
+      <h3><span class="sign-num">1</span> No MFA on Admin Accounts</h3>
+      <p>The single most common finding: administrator accounts protected by nothing more than a password. If your global admin (the account with the keys to the whole tenant) only has a password, then the entire business is one credential leak away from being owned.</p>
+      <p><strong>Why it matters:</strong> An attacker with admin access doesn't need to "hack" anything else. They reset passwords, read everyone's mail, create their own forwarding rules, and quietly exfiltrate your data over weeks. The account is one password guess away from someone owning your domain, your email, your files.</p>
+      <p><strong>The fix:</strong> Turn on MFA for every account - starting with all administrator roles - and enforce it with Conditional Access so it can't be turned off by a user.</p>
+    </div>
+
+    <div class="sign-card">
+      <h3><span class="sign-num">2</span> Shared Logins</h3>
+      <p>"It's easier." That's the justification for a team sharing one mailbox login, one admin account, or one generic user. It's easier, yes - until the person who left six weeks ago still has access to the accounts mailbox.</p>
+      <p><strong>Why it matters:</strong> Shared logins destroy accountability. When an email goes missing or a payment is redirected, you can't tell who did it because the audit trail just shows "the shared account." They're also a favourite target for attackers: one credential compromise hands them access to everyone who relies on that login.</p>
+      <p><strong>The fix:</strong> A named account for every human, every time. Shared mailboxes exist for a reason - use them - and terminate access the day someone leaves.</p>
+    </div>
+
+    <div class="sign-card">
+      <h3><span class="sign-num">3</span> Inbox Rules Nobody Knows About</h3>
+      <p>This is the silent one. Attackers who compromise a mailbox don't announce themselves. They create a quiet inbox rule - forward everything containing "invoice" to an external address, or move admin emails to a folder the victim never opens - and then they wait.</p>
+      <p><strong>Why it matters:</strong> We've found attackers sitting silently in inboxes for weeks, reading invoices, redirecting payments, learning the rhythm of the business before striking. Because the rule is invisible to the person whose mailbox it's in, the compromise can go undetected for months.</p>
+      <p><strong>The fix:</strong> Review inbox rules regularly, and turn on alerts for suspicious patterns: new forwarding rules, rules sending mail outside the organisation, or mailbox logins from new locations.</p>
+    </div>
+
+    <h2>The Good News: The Fix Takes About Two Hours</h2>
+
+    <p>None of this is expensive or complicated to fix. For a tenant under 50 users, locking down these three gaps takes roughly two hours of focused work:</p>
+
+    <ol>
+      <li><strong>Enforce MFA everywhere.</strong> Enable security defaults or set up Conditional Access policies, then require MFA for all users and all admin roles.</li>
+      <li><strong>Audit admin roles.</strong> Most tenants have far more administrators than they need. Reduce global admins to the two or three people who genuinely need them, and give everyone else least-privilege roles.</li>
+      <li><strong>Block legacy authentication.</strong> Old protocols (IMAP, SMTP auth, basic auth) bypass MFA entirely. Block them and the phishing-resistant setup you just built actually holds.</li>
+      <li><strong>Clean up shared accounts and stale access.</strong> Replace shared logins with named accounts, and remove anyone who has left.</li>
+      <li><strong>Set up alerting.</strong> Forwarding rules, unusual logins, and admin changes should trigger a notification to someone who knows what to do with it.</li>
+    </ol>
+
+    <blockquote>
+      Most businesses don't know they need this. The default settings look fine, everything works, nobody's had an incident yet. The security posture of your tenant is a risk you're carrying without realising it.
+    </blockquote>
+
+    <h2>Why It Stays Broken</h2>
+
+    <p>Here's the uncomfortable part: the tenants we see are rarely broken because someone made a bad decision. They're broken because nobody was looking. Microsoft 365 security changes constantly - new attack techniques, new defaults, new features that need configuring. Keeping up is a job in itself.</p>
+
+    <p>That's why a one-off cleanup isn't the answer. The two-hour fix gets you to a safe baseline, and then the configuration needs to be reviewed on a schedule. The businesses that stay secure are the ones where someone checks the tenant regularly: MFA coverage, admin roles, forwarding rules, login anomalies.</p>
+
+    <p>You don't need to become a Microsoft 365 security expert. You need someone who checks it for you.</p>
+
+    <div class="blog-cta-box">
+      <h3>Want to know what state your Microsoft 365 tenant is in?</h3>
+      <p>We review Microsoft 365 configuration as part of every free health check - MFA coverage, admin roles, forwarding rules, and legacy authentication. Takes about 15 minutes and you get a one-page report. No obligation, no pitch.</p>
+      <a href="/health-check/" class="md-button md-button--filled md-button--large">Book Your Free Health Check</a>
+    </div>
+
+    <p style="margin-top:var(--md-space-2xl);">
+      <a href="/blog/" class="md-button md-button--text">← Back to all articles</a>
+      &nbsp;&nbsp;
+      <a href="/services/" class="md-button md-button--outlined">See Our Services →</a>
+    </p>
+
+  </article>
+
+</div>
+
+<footer class="md-footer">
+  <div class="md-container">
+    <div class="md-footer__grid">
+      <div class="md-footer__brand">
+        <img src="/assets/logo.png" alt="Prismera" width="36" height="36">
+        <p>Enterprise-grade IT services and digital transformation for Australian businesses. Security, cloud, and strategy under one roof.</p>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Services</h4>
+        <div class="md-footer__links">
+          <a href="/services/">Managed IT</a>
+          <a href="/services/">Cybersecurity</a>
+          <a href="/services/">Cloud Solutions</a>
+          <a href="/services/">Digital Strategy</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Company</h4>
+        <div class="md-footer__links">
+          <a href="/about-us/">About Us</a>
+          <a href="/blog/">Blog</a>
+          <a href="/contact/">Contact</a>
+          <a href="/contact/">Privacy Policy</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Contact</h4>
+        <div class="md-footer__links">
+          <a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a>
+          <a href="tel:+61391231929">(03) 9123 1929</a>
+          <span style="color:var(--md-on-surface-muted);font-size:var(--md-font-label)">Melbourne, Australia</span>
+        </div>
+      </div>
+    </div>
+    <div class="md-footer__bottom">
+      <p>&copy; 2025 Prismera Pty Ltd. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
