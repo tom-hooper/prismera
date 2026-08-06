@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Prismera Platform - Australia's sovereign data-residence security platform. End-to-end protection, domestic data storage, and a self-managed architecture operated by our Melbourne team.">
+  <title>The Platform - Prismera</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Material Design 3 -->
+  <link rel="stylesheet" href="/css/material.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/logo.png" sizes="32x32">
+  <link rel="icon" href="/assets/logo.png" sizes="192x192">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C9CMHS94L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-2C9CMHS94L");
+  </script>
+</head>
+
+<body>
+
+<!-- ========== SHARED HEADER ========== -->
+<!-- Prismera Shared Header -->
+<header class="md-header">
+  <div class="md-container md-header__inner">
+    <a href="/" class="md-header__logo">
+      <img src="/assets/logo.png" alt="Prismera" width="40" height="40">
+      Prismera
+    </a>
+    <button class="md-hamburger" id="nav-toggle" aria-label="Toggle navigation">
+      <span class="md-hamburger__icon"></span>
+    </button>
+    <nav class="md-nav" id="main-nav">
+      <a href="/" class="md-nav__link" data-page="home">Home</a>
+      <a href="/about-us/" class="md-nav__link" data-page="about-us">About Us</a>
+      <a href="/services/" class="md-nav__link" data-page="services">Services</a>
+      <a href="/platform/" class="md-nav__link" data-page="platform">Platform</a>
+      <a href="/reviews/" class="md-nav__link" data-page="reviews">Reviews</a>
+      <a href="/blog/" class="md-nav__link" data-page="blog">Blog</a>
+      <a href="/contact/" class="md-nav__link" data-page="contact">Contact</a>
+      <div class="md-nav__cta">
+        <a href="/health-check/" class="md-button md-button--filled">Free IT Health Check</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+(function() {
+  // Mobile nav toggle
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() {
+      nav.classList.toggle('md-nav--open');
+    });
+  }
+
+  // Active link highlighting
+  var path = window.location.pathname.replace(/\/$/, '') || '/';
+  var links = document.querySelectorAll('.md-nav__link[data-page]');
+  links.forEach(function(link) {
+    var page = link.getAttribute('data-page');
+    if (page === 'home' && path === '/') {
+      link.classList.add('md-nav__link--active');
+    } else if (page !== 'home' && path.indexOf('/' + page) === 0) {
+      link.classList.add('md-nav__link--active');
+    }
+  });
+})();
+</script>
+
+<!-- ========== MAIN BODY ========== -->
+<div class="md-body">
+
+  <!-- Page Hero -->
+  <section class="md-hero md-hero--page" style="background: linear-gradient(135deg, rgba(0,105,92,0.92) 0%, rgba(0,137,123,0.88) 100%), url('/assets/img/network.jpg') center/cover no-repeat;">
+    <div class="md-container md-hero__content">
+      <h1>The Prismera Platform</h1>
+      <p>Sovereign data residence, end-to-end security, self-managed by design</p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="md-section">
+    <div class="md-container">
+      <div class="md-text-center" style="max-width: 760px; margin: 0 auto;">
+        <h2 class="md-mb-md">Your data stays in Australia. Your security never sleeps.</h2>
+        <p class="md-text-body-large">The Prismera Platform is a sovereign data-residence platform that secures your entire IT environment end to end. Customer data at rest stays in Australia, hosted in Australian data centres, and every layer of the platform is operated by our own Melbourne-based team. No offshore handling, no shared tenancy, no ambiguity about where your data lives or who touches it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three pillars -->
+  <section class="md-section md-section--surface">
+    <div class="md-container">
+      <div class="md-grid md-grid--3">
+
+        <div class="md-feature">
+          <div class="md-feature__icon">
+            <span class="material-icons">location_on</span>
+          </div>
+          <h3 class="md-feature__title">Sovereign Data Residence</h3>
+          <p class="md-feature__body">Your data at rest never leaves Australia. Every customer environment runs in Australian data centres on our own platform, so you can answer the question "where does our data live?" with confidence.</p>
+        </div>
+
+        <div class="md-feature">
+          <div class="md-feature__icon">
+            <span class="material-icons">security</span>
+          </div>
+          <h3 class="md-feature__title">End-to-End Security</h3>
+          <p class="md-feature__body">Continuous threat detection, endpoint protection, automated patch management, and incident investigation and recovery, across every layer of your IT from workstations to cloud workloads.</p>
+        </div>
+
+        <div class="md-feature">
+          <div class="md-feature__icon">
+            <span class="material-icons">settings</span>
+          </div>
+          <h3 class="md-feature__title">Self-Managed Service Design</h3>
+          <p class="md-feature__body">The platform is architected so each customer environment is isolated and independently managed. Our Australian team operates the full stack, with complete visibility and control handed to you.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="md-section md-section--surface-variant">
+    <div class="md-container">
+      <div class="md-grid md-grid--2" style="align-items: center;">
+        <div>
+          <h2 class="md-mb-lg">Built around sovereignty by design</h2>
+          <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px;">
+            <li style="display: flex; align-items: flex-start; gap: 12px; font-size: var(--md-font-body); color: var(--md-on-surface-variant); line-height: var(--md-line-height-body);">
+              <span class="material-icons" style="color: var(--md-primary); font-size: 20px; margin-top: 2px; flex-shrink: 0;">check_circle</span>
+              <span><strong style="color: var(--md-on-surface);">Domestic data storage</strong> - data at rest is held in Australian data centres, never routed offshore for processing or storage.</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 12px; font-size: var(--md-font-body); color: var(--md-on-surface-variant); line-height: var(--md-line-height-body);">
+              <span class="material-icons" style="color: var(--md-primary); font-size: 20px; margin-top: 2px; flex-shrink: 0;">check_circle</span>
+              <span><strong style="color: var(--md-on-surface);">Isolated customer environments</strong> - every customer is independently managed on the platform, with no shared multi-tenant exposure.</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 12px; font-size: var(--md-font-body); color: var(--md-on-surface-variant); line-height: var(--md-line-height-body);">
+              <span class="material-icons" style="color: var(--md-primary); font-size: 20px; margin-top: 2px; flex-shrink: 0;">check_circle</span>
+              <span><strong style="color: var(--md-on-surface);">Self-managed operations</strong> - monitoring, response, and platform operations are run by our own team in Melbourne, with no offshore handling of customer data.</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 12px; font-size: var(--md-font-body); color: var(--md-on-surface-variant); line-height: var(--md-line-height-body);">
+              <span class="material-icons" style="color: var(--md-primary); font-size: 20px; margin-top: 2px; flex-shrink: 0;">check_circle</span>
+              <span><strong style="color: var(--md-on-surface);">Full visibility</strong> - you see what the platform sees: alerts, findings, and response actions, with reporting you can hand to auditors and insurers.</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="md-card md-card--elevated">
+            <div class="md-card__content">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--md-space-xl); text-align: center;">
+                <div>
+                  <div style="font-size: var(--md-font-display); font-weight: var(--md-font-weight-bold); color: var(--md-primary); line-height: 1.1;">24/7</div>
+                  <div style="font-size: var(--md-font-label); color: var(--md-on-surface-variant); margin-top: 4px;">SOC Monitoring</div>
+                </div>
+                <div>
+                  <div style="font-size: var(--md-font-display); font-weight: var(--md-font-weight-bold); color: var(--md-primary); line-height: 1.1;">AU</div>
+                  <div style="font-size: var(--md-font-label); color: var(--md-on-surface-variant); margin-top: 4px;">Data at Rest</div>
+                </div>
+                <div>
+                  <div style="font-size: var(--md-font-display); font-weight: var(--md-font-weight-bold); color: var(--md-primary); line-height: 1.1;">100%</div>
+                  <div style="font-size: var(--md-font-label); color: var(--md-on-surface-variant); margin-top: 4px;">Australian Operated</div>
+                </div>
+                <div>
+                  <div style="font-size: var(--md-font-display); font-weight: var(--md-font-weight-bold); color: var(--md-primary); line-height: 1.1;">E2E</div>
+                  <div style="font-size: var(--md-font-label); color: var(--md-on-surface-variant); margin-top: 4px;">Protection</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance -->
+  <section class="md-section">
+    <div class="md-container">
+      <div class="md-text-center md-mb-3xl">
+        <h2 class="md-mb-md">Built for regulated Australian businesses</h2>
+        <p class="md-text-body-large" style="max-width: 640px; margin: 0 auto;">The platform is designed to help Australian businesses meet their security and data-handling obligations, with evidence and reporting built in.</p>
+      </div>
+      <div class="md-grid md-grid--2" style="align-items: start;">
+        <div class="md-card">
+          <div class="md-card__content">
+            <h3 class="md-mb-sm">Privacy Act 1988 (Cth) and the APPs</h3>
+            <p class="md-text-body" style="color: var(--md-on-surface-variant);">Clear, auditable data handling aligned with the Australian Privacy Principles, including APP 11 on security of personal information and the Notifiable Data Breaches scheme.</p>
+          </div>
+        </div>
+        <div class="md-card">
+          <div class="md-card__content">
+            <h3 class="md-mb-sm">APRA CPS 234 and Essential Eight</h3>
+            <p class="md-text-body" style="color: var(--md-on-surface-variant);">Security controls and reporting mapped to the Essential Eight mitigation strategies and the information-security expectations for regulated financial entities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="md-container">
+      <div class="md-cta-banner">
+        <h2>See what the platform would find in your environment</h2>
+        <p>Book a free IT health check and we will show you where your business stands, with no obligation.</p>
+        <a href="/health-check/" class="md-button md-button--on-primary md-button--large">Book Your Free Health Check</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /md-body -->
+
+<!-- Prismera Shared Footer -->
+<footer class="md-footer">
+  <div class="md-container">
+    <div class="md-footer__grid">
+      <!-- Brand -->
+      <div class="md-footer__brand">
+        <img src="/assets/logo.png" alt="Prismera" width="36" height="36">
+        <p>Australia's sovereign data-residence security platform. End-to-end protection with domestic data storage, delivered on a self-managed platform operated from Melbourne.</p>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h4 class="md-footer__heading">Services</h4>
+        <div class="md-footer__links">
+          <a href="/platform/">The Platform</a>
+          <a href="/services/">Managed IT</a>
+          <a href="/services/">Cybersecurity</a>
+          <a href="/services/">Cloud Solutions</a>
+          <a href="/services/">Digital Strategy</a>
+        </div>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h4 class="md-footer__heading">Company</h4>
+        <div class="md-footer__links">
+          <a href="/about-us/">About Us</a>
+          <a href="/blog/">Blog</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="md-footer__heading">Contact</h4>
+        <div class="md-footer__links">
+          <a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a>
+          <a href="tel:+61391231929">(03) 9123 1929</a>
+          <span style="color:var(--md-on-surface-muted);font-size:var(--md-font-label)">Melbourne, Australia</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="md-footer__bottom">
+      <p>&copy; 2025 Prismera Pty Ltd. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
