@@ -134,6 +134,9 @@
               <label for="message" class="md-form-label">Message *</label>
               <textarea id="message" name="message" class="md-form-input" required rows="5" placeholder="How can we help?"></textarea>
             </div>
+            <div class="md-form-group">
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAAETjcgfdI_71GsCS" data-callback="onTurnstileSuccess" data-expired-callback="onTurnstileExpired" style="margin-bottom:16px;"></div>
+            </div>
             <button type="submit" class="md-button md-button--filled md-button--large" style="width:100%;justify-content:center;">Send Message</button>
           </form>
         </div>
@@ -252,14 +255,23 @@
 </footer>
 
 <!-- Contact Form JavaScript -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
 var formStarted = Date.now();
+var cfToken = '';
+window.onTurnstileSuccess = function(token) { cfToken = token; };
+window.onTurnstileExpired = function() { cfToken = ''; };
 document.getElementById('contact-form').addEventListener('submit', async function(e) {
   e.preventDefault();
   var status = document.getElementById('form-status');
   var btn = this.querySelector('button[type="submit"]');
   status.className = 'md-form-status md-form-status--sending';
   status.textContent = 'Sending...';
+  if (!cfToken) {
+    status.className = 'md-form-status md-form-status--error';
+    status.textContent = 'Please complete the security check before sending.';
+    return;
+  }
   btn.disabled = true;
   btn.textContent = 'Sending...';
 
@@ -268,6 +280,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     company: document.getElementById('company').value,
     company_website: document.getElementById('company_website').value,
     elapsed: Date.now() - formStarted,
+    cf_token: cfToken,
     email: document.getElementById('email').value,
     phone: document.getElementById('phone').value,
     message: document.getElementById('message').value
@@ -292,6 +305,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   }
   btn.disabled = false;
   btn.textContent = 'Send Message';
+  try { turnstile.reset(document.querySelector('.cf-turnstile')); } catch (e) {}
 });
 </script>
 
