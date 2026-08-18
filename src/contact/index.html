@@ -118,6 +118,10 @@
               <input type="text" id="name" name="name" class="md-form-input" required placeholder="Your name">
             </div>
             <div class="md-form-group">
+              <label for="company" class="md-form-label">Company</label>
+              <input type="text" id="company" name="company" class="md-form-input" placeholder="Your company (optional)">
+            </div>
+            <div class="md-form-group">
               <label for="email" class="md-form-label">Email *</label>
               <input type="email" id="email" name="email" class="md-form-input" required placeholder="your@email.com">
             </div>
@@ -259,6 +263,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 
   var data = {
     name: document.getElementById('name').value,
+    company: document.getElementById('company').value,
     email: document.getElementById('email').value,
     phone: document.getElementById('phone').value,
     message: document.getElementById('message').value
