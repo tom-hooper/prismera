@@ -1421,6 +1421,17 @@ textarea.md-form-input {
   background: var(--md-surface);
 }
 
+/* Roadmap items are aspirational, not certified: visually distinct */
+.md-trust-strip__item--roadmap {
+  border-style: dashed;
+  color: var(--md-on-surface-muted);
+  background: var(--md-surface-dim);
+}
+.md-trust-strip__item--roadmap::after {
+  content: ' (in progress)';
+  font-size: var(--md-font-small);
+}
+
 /* Stats band */
 .md-stats-band {
   display: grid;
