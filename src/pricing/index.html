@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prismera pricing - simple per-user managed IT and cybersecurity pricing. Plans start at $99 per user per month, no lock-in contracts, everything delivered from Australia.">
+  <title>Pricing - Prismera</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Material Design 3 -->
+  <link rel="stylesheet" href="/css/material.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/logo.png" sizes="32x32">
+  <link rel="icon" href="/assets/logo.png" sizes="192x192">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C9CMHS94L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-2C9CMHS94L");
+  </script>
+</head>
+
+<body>
+
+<!-- ========== SHARED HEADER ========== -->
+<!-- Prismera Shared Header -->
+<header class="md-header">
+  <div class="md-container md-header__inner">
+    <a href="/" class="md-header__logo">
+      <img src="/assets/logo.png" alt="Prismera" width="40" height="40">
+      Prismera
+    </a>
+    <button class="md-hamburger" id="nav-toggle" aria-label="Toggle navigation">
+      <span class="md-hamburger__icon"></span>
+    </button>
+    <nav class="md-nav" id="main-nav">
+      <a href="/" class="md-nav__link" data-page="home">Home</a>
+      <a href="/about-us/" class="md-nav__link" data-page="about-us">About Us</a>
+      <a href="/services/" class="md-nav__link" data-page="services">Services</a>
+      <a href="/platform/" class="md-nav__link" data-page="platform">Platform</a>
+      <a href="/reviews/" class="md-nav__link" data-page="reviews">Client Stories</a>
+      <a href="/pricing/" class="md-nav__link" data-page="pricing">Pricing</a>
+      <a href="/contact/" class="md-nav__link" data-page="contact">Contact</a>
+      <div class="md-nav__cta">
+        <a href="tel:+61391231929" class="md-nav__phone">(03) 9123 1929</a>
+        <a href="/health-check/" class="md-button md-button--filled">Free IT Health Check</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+(function() {
+  // Mobile nav toggle
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() {
+      nav.classList.toggle('md-nav--open');
+    });
+  }
+
+  // Active link highlighting
+  var path = window.location.pathname.replace(/\/$/, '') || '/';
+  var links = document.querySelectorAll('.md-nav__link[data-page]');
+  links.forEach(function(link) {
+    var page = link.getAttribute('data-page');
+    if (page === 'home' && path === '/') {
+      link.classList.add('md-nav__link--active');
+    } else if (page !== 'home' && path.indexOf('/' + page) === 0) {
+      link.classList.add('md-nav__link--active');
+    }
+  });
+})();
+</script>
+
+<!-- ========== MAIN BODY ========== -->
+<div class="md-body">
+
+  <!-- Page Hero -->
+  <section class="md-hero md-hero--page" style="background: linear-gradient(135deg, rgba(0,105,92,0.92) 0%, rgba(0,137,123,0.88) 100%), url('/assets/img/tech.jpg') center/cover no-repeat;">
+    <div class="md-container md-hero__content">
+      <h1>Simple, per-user pricing</h1>
+      <p>Transparent managed IT and cybersecurity, priced per user per month. No hidden fees, no lock-in contracts.</p>
+    </div>
+  </section>
+
+  <!-- How per-user pricing works -->
+  <section class="md-section">
+    <div class="md-container">
+      <div class="md-text-center md-mb-3xl">
+        <h2 class="md-mb-md">One predictable rate per user</h2>
+        <p class="md-text-body-large" style="max-width: 680px; margin: 0 auto; color: var(--md-on-surface-variant);">Per-user pricing keeps your IT budget simple. Every plan is priced per user per month, so the cost tracks your team and never surprises you.</p>
+      </div>
+
+      <div class="md-grid md-grid--3" style="align-items: start;">
+
+        <div class="md-feature">
+          <div class="md-feature__icon">
+            <span class="material-icons">group</span>
+          </div>
+          <h3 class="md-feature__title">Pay per user, not per device</h3>
+          <p class="md-feature__body">One rate covers each person's managed devices, email, security stack and support. No separate line items for devices, services or add-ons.</p>
+        </div>
+
+        <div class="md-feature">
+          <div class="md-feature__icon">
+            <span class="material-icons">trending_up</span>
+          </div>
+          <h3 class="md-feature__title">Scales with your team</h3>
+          <p class="md-feature__body">Add a person and the monthly cost grows by one predictable per-user rate. Trim headcount and the cost follows. No renegotiation, no surprises.</p>
+        </div>
+
+        <div class="md-feature">
+          <div class="md-feature__icon">
+            <span class="material-icons">check_circle</span>
+          </div>
+          <h3 class="md-feature__title">Everything included</h3>
+          <p class="md-feature__body">Onboarding, migration support and access to our Australian help desk are part of every plan, with minimums from 5 users on Starter and 10 on Business.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing cards -->
+  <section class="md-section md-section--surface">
+    <div class="md-container">
+      <div class="md-text-center md-mb-3xl">
+        <h2 class="md-mb-md">Plans that scale with you</h2>
+        <p class="md-text-body-large" style="max-width: 600px; margin: 0 auto; color: var(--md-on-surface-variant);">Every plan includes onboarding, migration support, and access to our Australian help desk. Prices are in AUD per user per month, excluding GST.</p>
+      </div>
+
+      <div class="md-grid md-grid--3" style="align-items: start;">
+
+        <!-- Starter -->
+        <div class="md-pricing-card">
+          <h3 class="md-pricing-card__name">Starter</h3>
+          <div class="md-pricing-card__price">$99<span>/user/mo</span></div>
+          <p class="md-pricing-card__subtitle">5+ users &bull; Great for small teams</p>
+          <ul class="md-pricing-card__features">
+            <li>Email Management &amp; Security</li>
+            <li>Basic Security Stack</li>
+            <li>Phone Support (business hours)</li>
+            <li>Remote Assistance</li>
+            <li>Monthly Health Reports</li>
+          </ul>
+          <a href="/health-check/" class="md-button md-button--outlined" style="width: 100%;">Start with a Health Check</a>
+        </div>
+
+        <!-- Business (Featured) -->
+        <div class="md-pricing-card md-pricing-card--featured">
+          <span class="md-pricing-card__badge">Most Popular</span>
+          <h3 class="md-pricing-card__name">Business</h3>
+          <div class="md-pricing-card__price">$250<span>/user/mo</span></div>
+          <p class="md-pricing-card__subtitle">10+ users &bull; Best for growing businesses</p>
+          <ul class="md-pricing-card__features">
+            <li>Full Security Stack</li>
+            <li>Unlimited Remote Support</li>
+            <li>Backup &amp; Recovery</li>
+            <li>Email Management &amp; Security</li>
+            <li>Complimentary vCIO</li>
+          </ul>
+          <a href="/health-check/" class="md-button md-button--filled" style="width: 100%;">Start with a Health Check</a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="md-pricing-card">
+          <h3 class="md-pricing-card__name">Enterprise</h3>
+          <div class="md-pricing-card__price">$599<span>/user/mo</span></div>
+          <p class="md-pricing-card__subtitle">Unlimited users &bull; Full-scale IT partnership</p>
+          <ul class="md-pricing-card__features">
+            <li>Dedicated Staffing</li>
+            <li>Custom Solutions</li>
+            <li>24/7 Monitoring &amp; Response</li>
+            <li>Complimentary vCIO</li>
+            <li>Priority SLA</li>
+          </ul>
+          <a href="/contact/" class="md-button md-button--outlined" style="width: 100%;">Get a Tailored Quote</a>
+        </div>
+
+      </div>
+
+      <p class="md-text-body" style="text-align: center; color: var(--md-on-surface-variant); margin-top: var(--md-space-xl);">Minimum user counts apply per tier. Not sure which plan fits? Book a <a href="/health-check/">free IT health check</a> and we will recommend the right starting point.</p>
+    </div>
+  </section>
+
+  <!-- What's included in every plan -->
+  <section class="md-section">
+    <div class="md-container">
+      <div class="md-text-center md-mb-3xl">
+        <h2 class="md-mb-md">Included in every plan</h2>
+        <p class="md-text-body-large" style="max-width: 640px; margin: 0 auto; color: var(--md-on-surface-variant);">The platform and the people behind it come as standard. Every plan is operated end to end by our Melbourne-based team.</p>
+      </div>
+
+      <div class="md-grid md-grid--3" style="align-items: start;">
+
+        <div class="md-feature">
+          <div class="md-feature__icon">
+            <span class="material-icons">rocket_launch</span>
+          </div>
+          <h3 class="md-feature__title">Onboarding &amp; Migration</h3>
+          <p class="md-feature__body">We handle setup and migration support as part of every plan, so your team lands on the platform without downtime or confusion.</p>
+        </div>
+
+        <div class="md-feature">
+          <div class="md-feature__icon">
+            <span class="material-icons">support_agent</span>
+          </div>
+          <h3 class="md-feature__title">Australian Help Desk</h3>
+          <p class="md-feature__body">Access to our Melbourne-based help desk during business hours, with a real team that knows your environment.</p>
+        </div>
+
+        <div class="md-feature">
+          <div class="md-feature__icon">
+            <span class="material-icons">monitoring</span>
+          </div>
+          <h3 class="md-feature__title">24/7 Monitoring &amp; Alerting</h3>
+          <p class="md-feature__body">Continuous monitoring and alerting across your environment, with fast response when something looks wrong.</p>
+        </div>
+
+        <div class="md-feature">
+          <div class="md-feature__icon">
+            <span class="material-icons">system_update</span>
+          </div>
+          <h3 class="md-feature__title">Patch Management</h3>
+          <p class="md-feature__body">Automated patching keeps operating systems and applications current against known vulnerabilities.</p>
+        </div>
+
+        <div class="md-feature">
+          <div class="md-feature__icon">
+            <span class="material-icons">assessment</span>
+          </div>
+          <h3 class="md-feature__title">Monthly Health Reports</h3>
+          <p class="md-feature__body">A clear monthly report on your environment's health and security posture, plus what we did about it.</p>
+        </div>
+
+        <div class="md-feature">
+          <div class="md-feature__icon">
+            <span class="material-icons">verified_user</span>
+          </div>
+          <h3 class="md-feature__title">No Lock-In Contracts</h3>
+          <p class="md-feature__body">Simple month-to-month terms and no hidden fees. We earn your business every month.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="md-section md-section--surface-variant">
+    <div class="md-container md-container--narrow">
+      <div class="md-text-center md-mb-2xl">
+        <h2>Pricing Questions</h2>
+      </div>
+
+      <div class="md-faq">
+
+        <details class="md-faq__item" open>
+          <summary>How does per-user pricing work?</summary>
+          <div class="md-faq__answer">
+            <p>You pay a fixed rate per user per month, and that rate covers the person's managed devices, email, security stack and support. There are no separate line items for devices, services or add-ons, so the monthly cost is predictable and easy to budget for.</p>
+          </div>
+        </details>
+
+        <details class="md-faq__item">
+          <summary>What is the minimum number of users?</summary>
+          <div class="md-faq__answer">
+            <p>Starter plans start at 5 users and Business plans at 10 users. Smaller teams are welcome too, contact us for a tailored quote that fits.</p>
+          </div>
+        </details>
+
+        <details class="md-faq__item">
+          <summary>What is included in the per-user rate?</summary>
+          <div class="md-faq__answer">
+            <p>Every plan includes onboarding, migration support and access to our Australian help desk. Each tier adds more, from the full security stack and backup and recovery on Business, through to dedicated staffing and priority SLAs on Enterprise. See the plan cards above for the full breakdown.</p>
+          </div>
+        </details>
+
+        <details class="md-faq__item">
+          <summary>Are there setup fees or lock-in contracts?</summary>
+          <div class="md-faq__answer">
+            <p>No setup fees and no lock-in contracts. Pricing is month to month, and we will always tell you what you are paying for and why.</p>
+          </div>
+        </details>
+
+        <details class="md-faq__item">
+          <summary>What happens as my team grows?</summary>
+          <div class="md-faq__answer">
+            <p>Your cost grows by one predictable per-user rate per person. When you outgrow your current tier, we will help you move up smoothly, no renegotiation surprises.</p>
+          </div>
+        </details>
+
+        <details class="md-faq__item">
+          <summary>How do I get an exact quote?</summary>
+          <div class="md-faq__answer">
+            <p>Book a free IT health check and we will assess your environment, size the right plan, and give you a tailored quote with no obligation. See <a href="/health-check/">the health check page</a> to get started.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="md-container">
+      <div class="md-cta-banner">
+        <h2>Not sure which plan fits?</h2>
+        <p>Book a free IT health check and we will show you where your business stands, then recommend the right plan.</p>
+        <a href="/health-check/" class="md-button md-button--on-primary md-button--large">Book Your Free Health Check</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /md-body -->
+
+<!-- Prismera Shared Footer -->
+<footer class="md-footer">
+  <div class="md-container">
+    <div class="md-footer__grid">
+      <!-- Brand -->
+      <div class="md-footer__brand">
+        <img src="/assets/logo.png" alt="Prismera" width="36" height="36">
+        <p>Australia's sovereign data-residence security platform, founded in Melbourne in 2026. End-to-end protection with domestic data storage, delivered on a self-managed platform operated from Melbourne.</p>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h4 class="md-footer__heading">Services</h4>
+        <div class="md-footer__links">
+          <a href="/platform/">The Platform</a>
+          <a href="/services/">Managed IT</a>
+          <a href="/services/">Cybersecurity</a>
+          <a href="/services/">Cloud Solutions</a>
+          <a href="/services/">Digital Strategy</a>
+        </div>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h4 class="md-footer__heading">Company</h4>
+        <div class="md-footer__links">
+          <a href="/about-us/">About Us</a>
+          <a href="/pricing/">Pricing</a>
+          <a href="/blog/">Blog</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="md-footer__heading">Contact</h4>
+        <div class="md-footer__links">
+          <a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a>
+          <a href="tel:+61391231929">(03) 9123 1929</a>
+          <span style="color:var(--md-on-surface-muted);font-size:var(--md-font-label)">Melbourne, Australia</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="md-footer__bottom">
+      <p>&copy; 2026 Prismera. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
