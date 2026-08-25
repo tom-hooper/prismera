@@ -169,7 +169,7 @@
       background: var(--md-primary-container);
     }
 
-    /* Email capture form */
+    /* Contact capture form */
     .quiz-email {
       text-align: center;
     }
@@ -177,16 +177,23 @@
       font-size: var(--md-font-title);
       font-weight: var(--md-font-weight-bold);
       color: var(--md-on-surface);
-      margin-bottom: var(--md-space-md);
+      margin-bottom: var(--md-space-sm);
+    }
+    .quiz-email__hint {
+      color: var(--md-on-surface-variant);
+      font-size: var(--md-font-body);
+      margin-bottom: var(--md-space-lg);
     }
     .quiz-email__form {
       display: flex;
+      flex-direction: column;
       gap: var(--md-space-sm);
       max-width: 420px;
       margin: 0 auto;
     }
     .quiz-email__input {
-      flex: 1;
+      width: 100%;
+      box-sizing: border-box;
       padding: 12px 16px;
       font-family: inherit;
       font-size: var(--md-font-body);
@@ -199,6 +206,15 @@
     }
     .quiz-email__input:focus {
       border-color: var(--md-primary);
+    }
+    .quiz-email__status {
+      margin-top: var(--md-space-sm);
+      font-size: var(--md-font-label);
+      color: var(--md-on-surface-variant);
+      min-height: 1.2em;
+    }
+    .quiz-email__status--error {
+      color: #e53935;
     }
     .quiz-email__btn {
       font-family: inherit;
@@ -473,13 +489,20 @@
           </div>
         </div>
 
-        <!-- Email capture (shown after Q5) -->
+        <!-- Contact capture (shown after Q5) -->
         <div id="quiz-email-capture" class="quiz-email quiz-hidden">
-          <h2 class="quiz-email__title">Enter your email to see your Security Score</h2>
-          <div class="quiz-email__form">
-            <input type="email" id="quiz-email-input" class="quiz-email__input" placeholder="you@company.com" required>
-            <button id="quiz-email-btn" class="quiz-email__btn" onclick="showResults()">See My Results →</button>
-          </div>
+          <h2 class="quiz-email__title">Enter your details to see your Security Score</h2>
+          <p class="quiz-email__hint">We'll send your score and a plain-English breakdown of the gaps. No spam, unsubscribe anytime.</p>
+          <form id="quiz-contact-form" class="quiz-email__form" novalidate>
+            <input type="text" id="quiz-name-input" class="quiz-email__input" placeholder="Your name" required autocomplete="name">
+            <input type="email" id="quiz-email-input" class="quiz-email__input" placeholder="you@company.com" required autocomplete="email">
+            <input type="tel" id="quiz-phone-input" class="quiz-email__input" placeholder="Phone (optional)" autocomplete="tel">
+            <input type="text" id="quiz-company-input" class="quiz-email__input" placeholder="Company (optional)" autocomplete="organization">
+            <input type="text" id="quiz-company_website" name="company_website" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;opacity:0" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAETjcgfdI_71GsCS" data-action="contact" data-callback="onTurnstileSuccess" data-expired-callback="onTurnstileExpired" style="margin-bottom:12px;display:flex;justify-content:center;"></div>
+            <button type="submit" id="quiz-email-btn" class="quiz-email__btn">See My Results →</button>
+          </form>
+          <p class="quiz-email__status" id="quiz-form-status"></p>
         </div>
 
         <!-- Progress bar & navigation -->
@@ -564,11 +587,17 @@
   </div>
 </footer>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
 // ---- Quiz State ----
 var TOTAL_QUESTIONS = 5;
 var currentQuestion = 0;
 var scores = [null, null, null, null, null]; // selected points per question, null if unanswered
+var answerTexts = [null, null, null, null, null]; // selected answer text per question
+var quizStarted = Date.now();
+var cfToken = '';
+window.onTurnstileSuccess = function(token) { cfToken = token; };
+window.onTurnstileExpired = function() { cfToken = ''; };
 
 // ---- DOM refs ----
 var quizState = document.getElementById('quiz-state');
@@ -646,6 +675,7 @@ document.querySelectorAll('.quiz-options').forEach(function(group) {
 
     // Store score
     scores[qIndex] = points;
+    answerTexts[qIndex] = (option.querySelector('.quiz-option__text') || {}).textContent.trim();
     nextBtn.disabled = false;
   });
 });
@@ -672,17 +702,87 @@ prevBtn.addEventListener('click', function() {
   }
 });
 
-// ---- Email submit → Results ----
-function showResults() {
+// ---- Score calculation ----
+function scoreInfo() {
+  var totalScore = scores.reduce(function(sum, s) { return sum + (s !== null ? s : 0); }, 0);
+  var percentage = Math.round(totalScore / (TOTAL_QUESTIONS * 3) * 100);
+  var level = percentage <= 40 ? 'High Risk' : (percentage <= 70 ? 'Moderate Risk' : 'Well Protected');
+  return { totalScore: totalScore, percentage: percentage, level: level };
+}
+
+function buildQuizMessage(percentage, level) {
+  var lines = ['Security self-assessment (prismera.com.au/quiz)', ''];
+  lines.push('Score: ' + percentage + '% (' + level + ')');
+  lines.push('');
+  for (var i = 0; i < TOTAL_QUESTIONS; i++) {
+    var q = document.querySelector('#quiz-question-' + i + ' .quiz-question');
+    var qText = q ? q.textContent.trim() : ('Question ' + (i + 1));
+    lines.push((i + 1) + '. ' + qText + ': ' + (answerTexts[i] || 'Not answered'));
+  }
+  return lines.join('\n');
+}
+
+// ---- Contact submit → Results + CRM lead ----
+document.getElementById('quiz-contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  var nameInput = document.getElementById('quiz-name-input');
   var emailInput = document.getElementById('quiz-email-input');
+  var status = document.getElementById('quiz-form-status');
+  var name = nameInput.value.trim();
   var email = emailInput.value.trim();
 
+  status.className = 'quiz-email__status';
+  status.textContent = '';
+
+  if (!name) {
+    status.textContent = 'Please enter your name.';
+    status.className = 'quiz-email__status quiz-email__status--error';
+    nameInput.focus();
+    return;
+  }
   if (!email || email.indexOf('@') === -1) {
-    emailInput.style.borderColor = '#e53935';
+    status.textContent = 'Please enter a valid email address.';
+    status.className = 'quiz-email__status quiz-email__status--error';
     emailInput.focus();
     return;
   }
+  if (!cfToken) {
+    status.textContent = 'Please complete the security check before continuing.';
+    status.className = 'quiz-email__status quiz-email__status--error';
+    return;
+  }
 
+  var info = scoreInfo();
+  var message = buildQuizMessage(info.percentage, info.level);
+
+  var data = {
+    name: name,
+    email: email,
+    phone: document.getElementById('quiz-phone-input').value.trim(),
+    company: document.getElementById('quiz-company-input').value.trim(),
+    company_website: document.getElementById('quiz-company_website').value,
+    elapsed: Date.now() - quizStarted,
+    cf_token: cfToken,
+    message: message
+  };
+
+  // Create the CRM lead in the background; results show immediately either way
+  fetch('https://choose-briefly-deutsch-webmaster.trycloudflare.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-Form-Token': '4b7c02b81ef9471b130da9ef976568c64a22dbced1951317' },
+    body: JSON.stringify(data)
+  }).then(function(res) {
+    console.log('Quiz lead submitted:', res.status);
+  }).catch(function(err) {
+    console.log('Quiz lead submit failed (results still shown):', err);
+  });
+
+  showResults();
+});
+
+// ---- Results ----
+function showResults() {
   // Hide quiz state, show results state
   quizState.classList.add('quiz-hidden');
   resultsState.classList.remove('quiz-hidden');
@@ -723,17 +823,8 @@ function showResults() {
     circle.style.background = 'conic-gradient(#43a047 0deg ' + (percentage / 100 * 360) + 'deg, #e8e8e8 ' + (percentage / 100 * 360) + 'deg 360deg)';
   }
 
-  // Optional: log or send email somewhere (placeholder)
-  console.log('Quiz completed. Score: ' + percentage + '%. Email: ' + email + '. Raw points: ' + totalScore + '/' + (TOTAL_QUESTIONS * 3));
+  console.log('Quiz completed. Score: ' + percentage + '%. Raw points: ' + totalScore + '/' + (TOTAL_QUESTIONS * 3));
 }
-
-// Allow Enter key on email input
-document.getElementById('quiz-email-input').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') {
-    e.preventDefault();
-    showResults();
-  }
-});
 
 // ---- Init ----
 showQuestion(0);
