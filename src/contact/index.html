@@ -277,6 +277,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   btn.disabled = true;
   btn.textContent = 'Sending...';
 
+  var qs = new URLSearchParams(window.location.search);
   var data = {
     name: document.getElementById('name').value,
     company: document.getElementById('company').value,
@@ -285,7 +286,11 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     cf_token: cfToken,
     email: document.getElementById('email').value,
     phone: document.getElementById('phone').value,
-    message: document.getElementById('message').value
+    message: document.getElementById('message').value,
+    utm_source: qs.get('utm_source'),
+    utm_medium: qs.get('utm_medium'),
+    utm_campaign: qs.get('utm_campaign'),
+    utm_content: qs.get('utm_content')
   };
 
   try {

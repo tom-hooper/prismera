@@ -756,6 +756,7 @@ document.getElementById('quiz-contact-form').addEventListener('submit', function
   var info = scoreInfo();
   var message = buildQuizMessage(info.percentage, info.level);
 
+  var qs = new URLSearchParams(window.location.search);
   var data = {
     name: name,
     email: email,
@@ -764,7 +765,11 @@ document.getElementById('quiz-contact-form').addEventListener('submit', function
     company_website: document.getElementById('quiz-company_website').value,
     elapsed: Date.now() - quizStarted,
     cf_token: cfToken,
-    message: message
+    message: message,
+    utm_source: qs.get('utm_source'),
+    utm_medium: qs.get('utm_medium'),
+    utm_campaign: qs.get('utm_campaign'),
+    utm_content: qs.get('utm_content')
   };
 
   // Create the CRM lead in the background; results show immediately either way
