@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mathspace exposed data on 1.08 million Australian students, parents and staff after a critical patch sat unapplied on a self-hosted Metabase reporting server. The lesson for anyone running self-hosted software.">
+  <title>The Mathspace Breach: Self-Hosted Software and the Patching Trap - Prismera Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/css/material.css">
+
+  <style>
+    .blog-article { max-width: 740px; margin: 0 auto; padding: var(--md-space-3xl) var(--md-space-lg); }
+    .blog-article h1 { font-size: var(--md-font-headline); line-height: 1.25; margin-bottom: var(--md-space-md); }
+    .blog-article h2 { font-size: 1.5rem; margin: var(--md-space-2xl) 0 var(--md-space-md); padding-top: var(--md-space-lg); border-top: 1px solid var(--md-outline); }
+    .blog-article h3 { font-size: 1.15rem; margin: var(--md-space-lg) 0 var(--md-space-sm); }
+    .blog-article p { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); }
+    .blog-article ul, .blog-article ol { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); padding-left: 1.5rem; }
+    .blog-article ul li, .blog-article ol li { margin-bottom: var(--md-space-sm); }
+    .blog-article strong { color: var(--md-on-surface); }
+    .blog-article blockquote { border-left: 4px solid var(--md-primary); padding: var(--md-space-md) var(--md-space-lg); margin: var(--md-space-xl) 0; background: var(--md-surface-variant); border-radius: 0 var(--md-shape-sm) var(--md-shape-sm) 0; font-style: italic; color: #555; }
+    .blog-meta { color: var(--md-on-surface-muted); font-size: var(--md-font-label); margin-bottom: var(--md-space-xl); display: flex; gap: var(--md-space-lg); flex-wrap: wrap; }
+    .blog-hero-img { width: 100%; height: 360px; object-fit: cover; border-radius: var(--md-shape-lg); margin-bottom: var(--md-space-xl); box-shadow: var(--md-elevation-2); }
+    .blog-cta-box { background: var(--md-primary-container); border-radius: var(--md-shape-lg); padding: var(--md-space-xl); margin: var(--md-space-2xl) 0; text-align: center; }
+    .blog-cta-box h3 { color: var(--md-on-primary-container); margin-bottom: var(--md-space-sm); }
+    .blog-cta-box p { color: #004D40; margin-bottom: var(--md-space-lg); }
+    .sign-card { background: var(--md-surface); border: 1px solid var(--md-outline); border-radius: var(--md-shape-md); padding: var(--md-space-lg); margin-bottom: var(--md-space-lg); }
+    .sign-card h3 { display: flex; align-items: center; gap: var(--md-space-sm); margin-bottom: var(--md-space-sm); }
+    .sign-card .sign-num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--md-primary); color: white; font-size: 18px; font-weight: 700; flex-shrink: 0; }
+    @media (max-width: 600px) {
+      .blog-article h1 { font-size: 1.75rem; }
+      .blog-article p, .blog-article ul, .blog-article ol { font-size: var(--md-font-body); }
+      .blog-hero-img { height: 220px; }
+    }
+  </style>
+
+  <link rel="icon" href="/assets/logo.png" sizes="32x32">
+  <link rel="icon" href="/assets/logo.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C9CMHS94L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-2C9CMHS94L");
+  </script>
+</head>
+<body>
+
+<header class="md-header">
+  <div class="md-container md-header__inner">
+    <a href="/" class="md-header__logo">
+      <img src="/assets/logo.png" alt="Prismera" width="40" height="40">
+      Prismera
+    </a>
+    <button class="md-hamburger" id="nav-toggle" aria-label="Toggle navigation">
+      <span class="md-hamburger__icon"></span>
+    </button>
+    <nav class="md-nav" id="main-nav">
+      <a href="/" class="md-nav__link" data-page="home">Home</a>
+      <a href="/about-us/" class="md-nav__link" data-page="about-us">About Us</a>
+      <a href="/services/" class="md-nav__link" data-page="services">Services</a>
+      <a href="/platform/" class="md-nav__link" data-page="platform">Platform</a>
+      <a href="/reviews/" class="md-nav__link" data-page="reviews">Client Stories</a>
+      <a href="/pricing/" class="md-nav__link" data-page="pricing">Pricing</a>
+      <a href="/contact/" class="md-nav__link" data-page="contact">Contact</a>
+      <div class="md-nav__cta">
+        <a href="tel:+61391231929" class="md-nav__phone">(03) 9123 1929</a>
+        <a href="/health-check/" class="md-button md-button--filled">Free IT Health Check</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+(function() {
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() { nav.classList.toggle('md-nav--open'); });
+  }
+  var path = window.location.pathname.replace(/\/$/, '') || '/';
+  document.querySelectorAll('.md-nav__link[data-page]').forEach(function(link) {
+    var page = link.getAttribute('data-page');
+    if ((page === 'home' && path === '/') || (page !== 'home' && path.indexOf('/' + page) === 0)) {
+      link.classList.add('md-nav__link--active');
+    }
+  });
+})();
+</script>
+
+<div class="md-body">
+
+  <article class="blog-article">
+    <div class="blog-meta">
+      <span>September 2026</span>
+      <span>&middot;</span>
+      <span>8 min read</span>
+      <span>&middot;</span>
+      <span>Cybersecurity</span>
+    </div>
+
+    <h1>The Mathspace Breach: Self-Hosted Software and the Patching Trap</h1>
+
+    <img src="/assets/img/server.jpg" alt="Server hardware in a rack" class="blog-hero-img">
+
+    <p>Last week Mathspace, the Australian online maths platform used by thousands of schools, confirmed one of the largest education data breaches in the country's history. More than a million students, parents and school staff across Australia and New Zealand had personal details taken, including names, email addresses and account information.</p>
+
+    <p>The breach deserves your attention for two reasons: it shows how one unpatched system can undo an otherwise sensible security setup, and the software at the centre of it, a self-hosted reporting tool called Metabase, is exactly the kind of thing many businesses run without a second thought.</p>
+
+    <h2>What happened at Mathspace</h2>
+
+    <p>On 3 September Mathspace confirmed that unauthorised parties had accessed an internal reporting system and downloaded records covering students, parents and guardians, teachers, and Mathspace staff. In total 1,079,819 people were affected, all in Australia and New Zealand. No passwords, authentication tokens or academic records were taken, and no evidence has emerged that the data was published or sold. Mathspace notified the Office of the Australian Information Commissioner and the Australian Cyber Security Centre, and is contacting affected individuals.</p>
+
+    <p>Mathspace was open about how the attackers got in. They exploited a known vulnerability in a self-hosted installation of Metabase, an internal reporting tool. The flaw, tracked as CVE-2026-72898 and rated 10 out of 10 on the CVSS severity scale, is an SQL injection bug that lets an unauthenticated attacker gain administrator access. It was exploited in the wild before a fix existed; Metabase published a critical advisory and patched versions in early August.</p>
+
+    <p>Mathspace did not act on that advisory quickly enough. Unauthorised access began on 10 August and data was downloaded on 27 August, but the instance was only updated on 29 August, more than two weeks after the attackers were inside. Mathspace is investigating why the initial advisory was not escalated and why the vendor's recommended compromise checks were not completed when the update was applied; the intrusion was confirmed on 3 September, after a review of historical logs.</p>
+
+    <blockquote>
+      "We are investigating why the initial advisory was not escalated and why those checks were not completed sooner. We are changing both processes as part of our incident response."
+    </blockquote>
+
+    <p>That admission contains the two failures that matter. The warning was missed, so nobody treated a critical, exploited-in-the-wild vulnerability as an emergency. And the patch was treated as the end of the job, with no check for whether the system was already compromised. A patch does not evict an attacker who is already inside; that is why the vendor's compromise checks exist, and why the intrusion only surfaced weeks later in the logs.</p>
+
+    <h2>Self-hosting means the patch queue is yours</h2>
+
+    <p>The word that should stop you in Mathspace's account is "self-hosted". Metabase is a business intelligence tool thousands of organisations install on their own servers for dashboards and reporting. When you run software yourself, you take on the vendor's security burden: watching advisories, judging severity, scheduling, testing, applying, then checking that nothing bad happened first.</p>
+
+    <p>Nothing pushes that work to you. A critical advisory is an email to a mailing list, or a page on a vendor site you have to be checking. If nobody is explicitly responsible for reading those advisories and acting within days, you do not have a patching process; you have a hope.</p>
+
+    <p>Mathspace is a technology company with engineers, and it still missed a critical advisory for weeks. When GitHub disclosed a critical remote code execution flaw in its self-hosted Enterprise Server product in early 2025, 88% of self-hosted instances were still unpatched at public disclosure. A reporting dashboard, a wiki, a file server, a VPN appliance, a mail server: every self-hosted component is an asset someone must track, version and patch, and the most mundane ones get forgotten. Internal tools often sit in front of large amounts of data, as Mathspace's reporting database proved.</p>
+
+    <h2>The Time You Have to Patch Is Shrinking</h2>
+
+    <p>The second trend is the patch window itself, the gap between a fix being published and attackers weaponising it. It is collapsing. Organisations historically took a median of 32 days to apply patches to known vulnerabilities; by 2025 the median time from disclosure to exploitation had fallen to roughly five days (Cloud Security Alliance). Rapid7's 2026 threat landscape report counted 146 vulnerabilities actively exploited in 2025, up 105% on the year before, with known-exploited vulnerabilities landing on CISA's catalogue about five days after disclosure.</p>
+
+    <p>In the Metabase case, the extortion group ShinyHunters claimed responsibility for hacking Metabase instances within days of the patch release, before many monthly maintenance windows had even opened. Policies built around 30-day SLAs and quarterly change windows were calibrated for a threat environment that no longer exists; internet-facing systems with exploited vulnerabilities need patching in days, which is why Australian government guidance through the Essential Eight treats prompt patching as a core control.</p>
+
+    <h2>Vibe Coding Is Adding to the Pile</h2>
+
+    <p>The third trend is the software itself. More of the code running the modern world is written by AI, at a speed and volume human review was never designed for. "Vibe coding", accepting AI-generated code with minimal scrutiny, is mainstream: a quarter of startups in Y Combinator's Winter 2025 cohort reported codebases that were 95% AI-generated.</p>
+
+    <p>The security data on AI-generated code is sobering. Veracode tested more than 100 large language models on security-sensitive coding tasks and found that 45% of generated samples introduced OWASP Top 10 vulnerabilities, with no improvement across testing cycles into 2026. Georgia Tech's Vibe Security Radar project tracked 74 CVEs in the first three months of 2026 traced directly to AI-generated code, and estimates the true figure is five to ten times higher. Around one in five packages referenced by AI-generated code do not exist, a pattern attackers exploit by registering those hallucinated names as malicious packages, a technique researchers call slopsquatting. Scans of more than 5,000 applications built on AI coding platforms found over 2,000 critical vulnerabilities and more than 400 exposed secrets.</p>
+
+    <p>Meanwhile AI is accelerating the other side: AI-assisted analysis has compressed the time from disclosure to working exploit from weeks to days, and in a growing number of cases to hours. The result is a squeeze from both directions: AI writes more software with measurable security debt, while AI helps attackers weaponise each disclosed flaw faster than human-scale patching can respond.</p>
+
+    <h2>What Your Business Should Do About It</h2>
+
+    <p>Most of the businesses we talk to do not run Metabase. They run the small-print equivalent: the dashboard someone installed five years ago, the file server under the desk, the internal tool a developer built for the team, the web app an ex-employee's company still hosts. Each one is a self-hosted asset with a patch queue, and each is the kind of forgotten system that shows up as an entry point in breach reports. Here is what the Mathspace timeline says you should be doing:</p>
+
+    <ol>
+      <li><strong>Inventory everything, starting with what faces the internet.</strong> If you cannot name every system that answers connections from outside your network, you cannot patch what you do not know exists. Include the internal tools: reporting, dashboards, wikis, file shares. They hold data too.</li>
+      <li><strong>Watch the right warnings.</strong> Subscribe to vendor security advisories for every product you run, and check CISA's Known Exploited Vulnerabilities catalogue. Treat a CVSS 9+ finding, or anything already exploited in the wild, as an emergency rather than a ticket for the next change window.</li>
+      <li><strong>Patch fast, then verify.</strong> Apply fixes to internet-facing systems within days of release. Then do the second step Mathspace missed: run the vendor's compromise-check guidance and review logs for signs the system was hit before you patched.</li>
+      <li><strong>Have an emergency path.</strong> A pre-approved process for urgent patches that does not wait for committee sign-off or the monthly maintenance window. In 2026, the window between advisory and exploit can be shorter than your change calendar.</li>
+      <li><strong>Question whether to self-host at all.</strong> The right question about any piece of software is whether you can patch it within the window the threat environment demands. If you cannot, the vendor's managed version is the safer choice, and patching becomes someone else's job.</li>
+      <li><strong>If AI wrote it, review it like code from an unknown developer.</strong> If your team uses AI coding tools, or a key vendor builds on them, ask what review happened before it reached production: security scanning, dependency checks, and human review of anything that touches logins and access controls. Untested AI-generated code is how the vulnerability pile keeps growing.</li>
+    </ol>
+
+    <p>Patching is unglamorous work, and it does not end when the update is applied. It is an inventory problem, an alerting problem and a discipline problem, and it needs an owner. The businesses that stay safe have someone explicitly responsible for the patch queue every week, and they escalate exploited vulnerabilities the same day they are disclosed.</p>
+
+    <div class="blog-cta-box">
+      <h3>Want to know what's actually running on your network?</h3>
+      <p>Our free health check maps your internet-facing systems and self-hosted software, checks patch status against current advisories, and shows you the gaps before someone else finds them. About 15 minutes, one-page report, no obligation.</p>
+      <a href="/health-check/" class="md-button md-button--filled md-button--large">Book Your Free Health Check</a>
+    </div>
+
+    <p style="margin-top:var(--md-space-2xl);">
+      <a href="/blog/" class="md-button md-button--text">← Back to all articles</a>
+      &nbsp;&nbsp;
+      <a href="/services/" class="md-button md-button--outlined">See Our Services →</a>
+    </p>
+
+
+    </article>
+
+</div>
+
+<footer class="md-footer">
+  <div class="md-container">
+    <div class="md-footer__grid">
+      <div class="md-footer__brand">
+        <img src="/assets/logo.png" alt="Prismera" width="36" height="36">
+        <p>Australia's sovereign data-residence security platform, founded in Melbourne in 2026. End-to-end protection with domestic data storage, delivered on a self-managed platform operated from Melbourne.</p>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Services</h4>
+        <div class="md-footer__links">
+          <a href="/platform/">The Platform</a>
+          <a href="/services/">Managed IT</a>
+          <a href="/services/">Cybersecurity</a>
+          <a href="/services/">Cloud Solutions</a>
+          <a href="/services/">Digital Strategy</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Company</h4>
+        <div class="md-footer__links">
+          <a href="/about-us/">About Us</a>
+          <a href="/pricing/">Pricing</a>
+          <a href="/blog/">Blog</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Contact</h4>
+        <div class="md-footer__links">
+          <a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a>
+          <a href="tel:+61391231929">(03) 9123 1929</a>
+          <span style="color:var(--md-on-surface-muted);font-size:var(--md-font-label)">Melbourne, Australia</span>
+        </div>
+      </div>
+    </div>
+    <div class="md-footer__bottom">
+      <p>&copy; 2026 Prismera. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
