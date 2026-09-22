@@ -62,47 +62,54 @@
    ======================================== */
 
 :root {
-  /* Primary - Teal */
-  --md-primary: #00897B;
-  --md-primary-dark: #00695C;
-  --md-primary-light: #4DB6AC;
-  --md-primary-container: #B2DFDB;
+  /* PALETTE: "Eucalyptus and Ochre" (Tom's pick, 2026-09-22).
+     Replaces the Google Material Design 3 defaults (Teal 600, Amber 600) that
+     made the site look machine generated. Eucalyptus green carries trust,
+     ochre is reserved for action, stone neutrals replace Material grey so the
+     page reads warm and paper-like. Zero blue, by standing rule.
+     Register and rationale: /home/tom/knowledge/marketing/prismera-brand-standards.md */
+
+  /* Primary - Eucalyptus */
+  --md-primary: #2F4A3A;
+  --md-primary-dark: #22392C;
+  --md-primary-light: #5B7A62;
+  --md-primary-container: #DCE4DA;
   --md-on-primary: #FFFFFF;
-  --md-on-primary-container: #00332E;
+  --md-on-primary-container: #16221A;
 
-  /* Secondary - Warm Amber */
-  --md-secondary: #FF8F00;
-  --md-secondary-dark: #E65100;
-  --md-secondary-container: #FFE0B2;
+  /* Secondary - Ochre (action colour, buttons and accents) */
+  --md-secondary: #B85C38;
+  --md-secondary-dark: #96462A;
+  --md-secondary-container: #F0D9CC;
   --md-on-secondary: #FFFFFF;
-  --md-on-secondary-container: #3E1500;
+  --md-on-secondary-container: #3A1A0E;
 
-  /* Tertiary - Deep Teal */
-  --md-tertiary: #006064;
-  --md-tertiary-container: #B2EBF2;
+  /* Tertiary - Deep Sage */
+  --md-tertiary: #46614E;
+  --md-tertiary-container: #DDE6DD;
   --md-on-tertiary: #FFFFFF;
-  --md-on-tertiary-container: #001F24;
+  --md-on-tertiary-container: #1B2A20;
 
-  /* Surface & Background */
+  /* Surface and Background - Stone neutrals */
   --md-surface: #FFFFFF;
-  --md-surface-variant: #F5F5F5;
-  --md-surface-dim: #F8F8F8;
-  --md-background: #FAFAFA;
-  --md-on-surface: #212121;
-  --md-on-surface-variant: #616161;
-  --md-on-surface-muted: #9E9E9E;
-  --md-outline: #E0E0E0;
-  --md-outline-variant: #BDBDBD;
+  --md-surface-variant: #EAE4D6;
+  --md-surface-dim: #F1ECE1;
+  --md-background: #F6F3EC;
+  --md-on-surface: #1E2420;
+  --md-on-surface-variant: #5F6B60;
+  --md-on-surface-muted: #6E7A70;
+  --md-outline: #D8D0BE;
+  --md-outline-variant: #C6BEA8;
 
   /* Status Colors */
-  --md-error: #D32F2F;
-  --md-error-container: #FFCDD2;
+  --md-error: #B3382E;
+  --md-error-container: #F2DAD6;
   --md-on-error: #FFFFFF;
-  --md-on-error-container: #B71C1C;
-  --md-success: #2E7D32;
-  --md-success-container: #C8E6C9;
+  --md-on-error-container: #58180F;
+  --md-success: #3F6B4A;
+  --md-success-container: #D9E4DA;
   --md-on-success: #FFFFFF;
-  --md-on-success-container: #1B5E20;
+  --md-on-success-container: #16291C;
 
   /* Elevation (box-shadow tokens) */
   --md-elevation-0: none;
