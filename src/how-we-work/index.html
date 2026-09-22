@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="What Prismera commits to in writing: support hours, response targets for critical, high and normal issues, how monitoring actually works, the documentation you own, and what changes in your first 90 days.">
+  <title>How We Work | Prismera</title>
+
+  <link rel="stylesheet" href="/css/material.css">
+
+  <style>
+    .privacy-page { max-width: 740px; margin: 0 auto; padding: var(--md-space-3xl) var(--md-space-lg); }
+    .privacy-page h1 { font-size: var(--md-font-headline); line-height: 1.25; margin-bottom: var(--md-space-md); }
+    .privacy-page h2 { font-size: 1.5rem; margin: var(--md-space-2xl) 0 var(--md-space-md); padding-top: var(--md-space-lg); border-top: 1px solid var(--md-outline); }
+    .privacy-page p { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); }
+    .privacy-page ul, .privacy-page ol { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); padding-left: 1.5rem; }
+    .privacy-page ul li, .privacy-page ol li { margin-bottom: var(--md-space-sm); }
+    .privacy-page strong { color: var(--md-on-surface); }
+    .privacy-meta { color: var(--md-on-surface-muted); font-size: var(--md-font-label); margin-bottom: var(--md-space-xl); }
+    @media (max-width: 600px) {
+      .privacy-page h1 { font-size: 1.75rem; }
+      .privacy-page p, .privacy-page ul, .privacy-page ol { font-size: var(--md-font-body); }
+    }
+
+    .hw-row { display: flex; gap: 18px; padding: 14px 0; border-top: 1px solid var(--md-outline); }
+    .hw-row > div:first-child { flex: 0 0 170px; font-weight: 600; color: var(--md-on-surface); }
+    .hw-row > div:last-child { flex: 1; }
+    .hw-sub { color: var(--md-on-surface-variant); font-size: var(--md-font-label); }
+    @media (max-width: 640px) { .hw-row { display: block; } .hw-row > div:first-child { margin-bottom: 4px; } }
+  </style>
+
+  <link rel="icon" href="/assets/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/favicon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C9CMHS94L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-2C9CMHS94L");
+  </script>
+</head>
+<body>
+
+<header class="md-header">
+  <div class="md-container md-header__inner">
+    <a href="/" class="md-header__logo">
+      <img src="/assets/logo.svg" alt="Prismera" width="40" height="40">
+      Prismera
+    </a>
+    <button class="md-hamburger" id="nav-toggle" aria-label="Toggle navigation">
+      <span class="md-hamburger__icon"></span>
+    </button>
+    <nav class="md-nav" id="main-nav">
+      <a href="/" class="md-nav__link" data-page="home">Home</a>
+      <a href="/about-us/" class="md-nav__link" data-page="about-us">About Us</a>
+      <a href="/services/" class="md-nav__link" data-page="services">Services</a>
+      <a href="/platform/" class="md-nav__link" data-page="platform">Platform</a>
+      <a href="/reviews/" class="md-nav__link" data-page="reviews">Client Stories</a>
+      <a href="/pricing/" class="md-nav__link" data-page="pricing">Pricing</a>
+      <a href="/contact/" class="md-nav__link" data-page="contact">Contact</a>
+      <div class="md-nav__cta">
+        <a href="tel:+61391231929" class="md-nav__phone">(03) 9123 1929</a>
+        <a href="/health-check/" class="md-button md-button--filled">Free IT Health Check</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+(function() {
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() { nav.classList.toggle('md-nav--open'); });
+  }
+  var path = window.location.pathname.replace(/\/$/, '') || '/';
+  document.querySelectorAll('.md-nav__link[data-page]').forEach(function(link) {
+    var page = link.getAttribute('data-page');
+    if ((page === 'home' && path === '/') || (page !== 'home' && path.indexOf('/' + page) === 0)) {
+      link.classList.add('md-nav__link--active');
+    }
+  });
+})();
+</script>
+
+<div class="md-body">
+
+  <section class="md-hero md-hero--page" style="background: rgba(47,74,58,0.92), url('/assets/img/network.jpg') center/cover no-repeat;">
+    <div class="md-container md-hero__content">
+      <h1>How we work</h1>
+      <p>What we commit to in writing, how monitoring actually works, and what changes in your first 90 days</p>
+    </div>
+  </section>
+
+  <section class="md-section md-section--surface">
+    <div class="md-container">
+      <div class="privacy-page">
+
+        <p class="privacy-meta">Last reviewed: September 2026</p>
+
+        <p>Most IT providers describe their service with adjectives. We would rather you could check ours. Everything on this page is specific, measurable, and something you can hold us to. Where we cannot evidence a claim yet, we say so rather than dress it up.</p>
+
+        <p>It is also here so you can read it before you talk to us, rather than receiving it at the end of a sales process.</p>
+
+        <h2>Our commitments</h2>
+
+        <p><strong>Support hours and how to reach us.</strong> Monday to Friday, 08:00 to 18:00 AEST, excluding Victorian public holidays. One phone number, one email address, and a ticket link. Every request becomes a ticket, so nothing relies on someone remembering a conversation.</p>
+
+        <p><strong>What we commit to.</strong> We commit to a response: a named person acknowledges your issue, tells you who is on it, and starts work. We do not commit to a fixed resolution time, because promising a repair window for an unknown fault is how providers end up breaking their own promises. Work continues until it is resolved or you agree to stop.</p>
+
+        <div class="hw-row">
+          <div>P1 Critical</div>
+          <div>Business stopped, suspected ransomware or breach, or email and phones down for everyone.<br><span class="hw-sub">Response: 1 hour, by phone. Updates every 2 hours until a workaround is in place.</span></div>
+        </div>
+        <div class="hw-row">
+          <div>P2 High</div>
+          <div>A team or site is blocked, a key system is degraded, or backups have failed.<br><span class="hw-sub">Response: 4 business hours, with updates daily.</span></div>
+        </div>
+        <div class="hw-row">
+          <div>P3 Normal</div>
+          <div>One person or device affected, a question, a change request, a new starter.<br><span class="hw-sub">Response: 1 business day.</span></div>
+        </div>
+        <div class="hw-row">
+          <div>Out of hours</div>
+          <div>P1 only, raised through the on-call number we give you in writing when you onboard.<br><span class="hw-sub">Response: 4 hours. If we cannot be reached, the commitment falls to next business morning at 08:00, with automated alerting continuing either way.</span></div>
+        </div>
+
+        <p>Every ticket records the time received, the time responded, and the time resolved. Your monthly report shows our performance against these targets, including the months we miss.</p>
+
+        <p><strong>Patching and maintenance.</strong> Security patches are assessed as they are released and applied on a defined cadence: internet-facing and actively exploited issues within 72 hours, everything else within 14 days, with a change window agreed with you for anything disruptive. The monthly report lists what went out and what was deferred, with reasons.</p>
+
+        <p><strong>Backup and recovery.</strong> Backups run daily and are monitored, with failures raised as P2. A restore is tested quarterly and the test result is included in your report, because an untested backup is not a backup. Retention is 30 days of daily restore points, longer where compliance requires.</p>
+
+        <p><strong>Reporting and review.</strong> Monthly, a written report covering incidents, patching, backup status, monitoring highlights, and our response performance. Quarterly, a review with a written summary of what changed, what is at risk, and what to plan for. Annually, your IT roadmap and budget, so a refresh does not arrive as a surprise.</p>
+
+        <p><strong>Escalation.</strong> If anything is not moving, it escalates to the person accountable, and we tell you who that is: the founder, by name, with a direct number. Nobody is asked to chase an account manager who has moved on.</p>
+
+        <p><strong>Changes.</strong> We do not make unannounced changes to your systems. Material changes are described in plain language, scheduled with you, and reversible, with the rollback stated before we start.</p>
+
+        <p><strong>Security incidents.</strong> If we suspect an incident we contact you within the P1 window, contain first where needed to protect your business, preserve what is needed for investigation, and tell you what we know and what we do not. We do not wait until an investigation is complete to tell you something is wrong.</p>
+
+        <p><strong>Leaving, and what you take with you.</strong> Month to month, with no lock-in contract, no exit fee, and no notice period longer than 30 days. On exit you receive the full documentation set within 5 business days, in open formats, plus reasonable assistance handing over to whoever comes next. That assistance is included, not chargeable.</p>
+
+        <p><strong>What is not included</strong>, so nobody discovers it later: hardware and licences are passed through at cost unless quoted otherwise; major projects are quoted separately; anything outside support hours other than P1 is next business day; and we are not your insurer, your legal adviser, or your compliance auditor.</p>
+
+        <h2>How monitoring actually works</h2>
+
+        <p>Agents on your computers, servers and network report continuously. That telemetry is checked automatically, and anything suspicious is compared against current threat intelligence before a human sees it. An alert that matches something criminals are actively using today is treated differently from a first-time oddity, and that difference is decided by intelligence rather than by who happens to be on shift.</p>
+
+        <p>When something fires:</p>
+        <ol>
+          <li>The alert is enriched automatically: what it is, where it came from, whether it is already known to be malicious, and what else on your network is affected.</li>
+          <li>A person looks at it during support hours, starting with that context rather than a raw log line.</li>
+          <li>Anything material becomes a tracked case, with a record of what was investigated and what was concluded. You can ask for that record.</li>
+          <li>If it is real, we contact you and use the response commitments above.</li>
+        </ol>
+
+        <p>Every month you get a written report covering what was monitored, what alerted, what was investigated, what was closed, what we patched, and whether backups succeeded, along with our measured response performance.</p>
+
+        <p><strong>What this is not.</strong> We do not operate a staffed 24/7 security operations centre: automated monitoring and alerting run continuously, and human triage runs in support hours plus the P1 on-call path. We do not publish an uptime percentage guarantee, because no small provider can honestly underwrite one. Monitoring is not insurance: it reduces the chance and the impact of an incident, and it does not transfer the risk.</p>
+
+        <h2>Documentation you own</h2>
+
+        <p>The three things that actually make a business leave an IT provider are billing surprises, support that only appears when something breaks, and an environment nobody has written down. The third is the one that hurts quietly, because when the person who knew your network leaves, you find out how little of it was recorded. So this is a deliverable, not a chore, and it is yours whether you stay with us for ten years or ten weeks.</p>
+
+        <p>For every client we maintain:</p>
+        <ul>
+          <li><strong>Asset register.</strong> Every server, workstation, laptop, network device, cloud service, licence and support contract, with owner, location and renewal date.</li>
+          <li><strong>Credential register.</strong> What exists, who owns it, where it is held, and the last rotation date. Passwords live in a managed vault, never in spreadsheets, documents or email.</li>
+          <li><strong>Network and systems diagram.</strong> How it all connects, including the internet path, remote access and cloud dependencies.</li>
+          <li><strong>Backup and recovery plan.</strong> What is backed up, how often, where copies live, retention, and the date and result of the last tested restore.</li>
+          <li><strong>Change log and incident log.</strong> What changed and why, who approved it, and how to reverse it; and for incidents, what happened, what we did, and what we changed afterwards.</li>
+          <li><strong>Onboarding and offboarding runbooks.</strong> The tested steps to give a new starter everything they need on day one, and to close access properly when someone leaves.</li>
+          <li><strong>Quarterly review pack.</strong> Your current risk list with priorities, what we recommend, and the cost of doing nothing.</li>
+        </ul>
+
+        <p>You can request any of it at any time, and you receive the complete set within 5 business days on exit, in open formats, with no conditions attached to it.</p>
+
+        <h2>Your first 90 days</h2>
+
+        <p>Changing IT providers has a cost, and pretending otherwise would be dishonest. So nothing changes in your environment until three things exist: your environment is documented, the risks are written down with priorities, and you have approved in writing what we can access. That documentation is yours from day one, whatever you decide.</p>
+
+        <p><strong>Days 1 to 30, stabilise.</strong> The top risks get fixed: unchecked backups, missing multi-factor authentication, unpatched internet-facing systems, departed staff who still have access. We verify your backups by restoring from them, not by reading a log that says they ran. Your ticket path goes live. Weekly check-ins. What deliberately does not change in month one: no migrations, no re-platforming, no changing your line-of-business software, and no removal of any existing tooling.</p>
+
+        <p><strong>Days 31 to 60, standardise.</strong> Monitoring tuned to your environment so it alerts on what matters. A patch cadence agreed and running in a window that suits your business hours. Onboarding and offboarding runbooks tested with a real starter or leaver. First monthly report issued, including our measured response performance.</p>
+
+        <p><strong>Days 61 to 90, improve.</strong> A costed roadmap for the year in plain business terms, a quarterly review scheduled, and anything your previous provider did well, kept. We are not going to change things just to look busy.</p>
+
+        <p><strong>What we need from you.</strong> A named person with authority to approve changes, thirty minutes a week for the first month, and a current contact list for staff and key suppliers.</p>
+
+        <h2>What we do not claim</h2>
+
+        <p>Stated deliberately, because you will hear the opposite elsewhere:</p>
+        <ul>
+          <li>We do not operate a staffed 24/7 security operations centre.</li>
+          <li>We do not guarantee an uptime percentage.</li>
+          <li>We do not claim ISO 27001 certification. It is in progress.</li>
+          <li>We do not claim dedicated staffing on any plan.</li>
+          <li>We do not claim a track record we cannot show you. Prismera is a new practice, founded in Melbourne in 2026, and what we offer instead is the founder's career, written commitments, and terms that let you leave.</li>
+        </ul>
+
+        <p style="margin-top:var(--md-space-2xl);">
+          <a href="/health-check/" class="md-button md-button--filled">Book a Free Health Check</a>
+          &nbsp;&nbsp;
+          <a href="/contact/" class="md-button md-button--outlined">Ask Us a Question</a>
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<footer class="md-footer">
+  <div class="md-container">
+    <div class="md-footer__grid">
+      <div class="md-footer__brand">
+        <img src="/assets/logo.svg" alt="Prismera" width="36" height="36">
+        <p>Managed IT and cybersecurity for Melbourne businesses, founded in Melbourne in 2026. Your data at rest stays in Australia, and a local team you can call looks after it.</p>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Services</h4>
+        <div class="md-footer__links">
+          <a href="/platform/">The Platform</a>
+          <a href="/services/">Managed IT</a>
+          <a href="/services/">Cybersecurity</a>
+          <a href="/services/">Cloud Solutions</a>
+          <a href="/services/">Digital Strategy</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Company</h4>
+        <div class="md-footer__links">
+          <a href="/about-us/">About Us</a>
+          <a href="/pricing/">Pricing</a>
+          <a href="/how-we-work/">How We Work</a>
+          <a href="/blog/">Blog</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Contact</h4>
+        <div class="md-footer__links">
+          <a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a>
+          <a href="tel:+61391231929">(03) 9123 1929</a>
+          <span style="color:var(--md-on-surface-muted);font-size:var(--md-font-label)">Melbourne, Australia</span>
+        </div>
+      </div>
+    </div>
+    <div class="md-footer__bottom">
+      <p>&copy; 2026 Prismera. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
