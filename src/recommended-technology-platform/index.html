@@ -15,6 +15,10 @@
     .privacy-page p { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); }
     .privacy-page ul, .privacy-page ol { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); padding-left: 1.5rem; }
     .privacy-page ul li, .privacy-page ol li { margin-bottom: var(--md-space-sm); }
+    /* The shared reset sets `ul, ol { list-style: none }`, so the text pages have to ask for their
+       markers back. Without this every list on a legal page renders as unmarked indented lines. */
+    .privacy-page ul { list-style: disc; }
+    .privacy-page ol { list-style: decimal; }
     .privacy-page strong { color: var(--md-on-surface); }
     .privacy-meta { color: var(--md-on-surface-muted); font-size: var(--md-font-label); margin-bottom: var(--md-space-xl); }
     @media (max-width: 600px) {
