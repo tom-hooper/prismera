@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prismera's rates, charges and the conditions that apply to them, referred to by the Managed Services Agreement and the General Terms and Conditions.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Rate Schedule - Prismera</title>
+
+  <link rel="stylesheet" href="/css/material.css">
+
+  <style>
+    .privacy-page { max-width: 740px; margin: 0 auto; padding: var(--md-space-3xl) var(--md-space-lg); }
+    .privacy-page h1 { font-size: var(--md-font-headline); line-height: 1.25; margin-bottom: var(--md-space-md); }
+    .privacy-page h2 { font-size: 1.5rem; margin: var(--md-space-2xl) 0 var(--md-space-md); padding-top: var(--md-space-lg); border-top: 1px solid var(--md-outline); }
+    .privacy-page p { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); }
+    .privacy-page ul, .privacy-page ol { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); padding-left: 1.5rem; }
+    .privacy-page ul li, .privacy-page ol li { margin-bottom: var(--md-space-sm); }
+    .privacy-page strong { color: var(--md-on-surface); }
+    .privacy-meta { color: var(--md-on-surface-muted); font-size: var(--md-font-label); margin-bottom: var(--md-space-xl); }
+    @media (max-width: 600px) {
+      .privacy-page h1 { font-size: 1.75rem; }
+      .privacy-page p, .privacy-page ul, .privacy-page ol { font-size: var(--md-font-body); }
+    }
+  </style>
+
+  <link rel="icon" href="/assets/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/favicon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C9CMHS94L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-2C9CMHS94L");
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yqtmv9b4bw");
+  </script>
+  <style>
+    /* Rate Schedule tables. Scoped to this page: nothing else uses them. */
+    .rs-table { width: 100%; border-collapse: collapse; margin: 0 0 var(--md-space-2xl); }
+    .rs-table caption { text-align: left; padding: 0 0 8px; color: var(--md-on-surface-muted); font-size: 0.9rem; }
+    .rs-table th, .rs-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #D8D0BE; vertical-align: top; }
+    .rs-table th { background: #EAE4D6; color: #1E2420; font-weight: 600; }
+    .rs-table td:last-child, .rs-table th:last-child { text-align: right; white-space: nowrap; }
+    @media (max-width: 640px) {
+      .rs-table th, .rs-table td { padding: 8px; font-size: 0.9rem; }
+      .rs-table td:last-child, .rs-table th:last-child { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="md-header">
+  <div class="md-container md-header__inner">
+    <a href="/" class="md-header__logo">
+      <img src="/assets/logo.svg" alt="Prismera" width="40" height="40">
+      Prismera
+    </a>
+    <button class="md-hamburger" id="nav-toggle" aria-label="Toggle navigation">
+      <span class="md-hamburger__icon"></span>
+    </button>
+    <nav class="md-nav" id="main-nav">
+      <a href="/" class="md-nav__link" data-page="home">Home</a>
+      <a href="/about-us/" class="md-nav__link" data-page="about-us">About Us</a>
+      <a href="/services/" class="md-nav__link" data-page="services">Services</a>
+      <a href="/platform/" class="md-nav__link" data-page="platform">Platform</a>
+      <a href="/reviews/" class="md-nav__link" data-page="reviews">Client Stories</a>
+      <a href="/pricing/" class="md-nav__link" data-page="pricing">Pricing</a>
+      <a href="/contact/" class="md-nav__link" data-page="contact">Contact</a>
+      <div class="md-nav__cta">
+        <a href="tel:+61391231929" class="md-nav__phone">(03) 9123 1929</a>
+        <a href="/health-check/" class="md-button md-button--filled">Free IT Health Check</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+(function() {
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() { nav.classList.toggle('md-nav--open'); });
+  }
+  var path = window.location.pathname.replace(/\/$/, '') || '/';
+  document.querySelectorAll('.md-nav__link[data-page]').forEach(function(link) {
+    var page = link.getAttribute('data-page');
+    if ((page === 'home' && path === '/') || (page !== 'home' && path.indexOf('/' + page) === 0)) {
+      link.classList.add('md-nav__link--active');
+    }
+  });
+})();
+</script>
+
+<div class="md-body">
+
+  <section class="md-hero md-hero--page" style="background: rgba(47,74,58,0.92), url('/assets/img/network.jpg') center/cover no-repeat;">
+    <div class="md-container md-hero__content">
+      <h1>Rate Schedule</h1>
+      <p>Our rates, charges and the conditions that apply to them</p>
+    </div>
+  </section>
+
+  <section class="md-section md-section--surface">
+    <div class="md-container">
+      <div class="privacy-page">
+
+        <p class="privacy-meta">Version 1.0. Effective 6 October 2026. Amounts are in Australian dollars and exclude GST unless stated otherwise.</p>
+
+        <p>This is the Rate Schedule referred to in our General Terms and Conditions and in your Agreement. It sets out our rates, the charges that go with them, and the conditions that apply.</p>
+
+        <p>If a rate appears in both this schedule and your Proposal or Agreement, the rate in your Proposal or Agreement applies. Your Proposal is the authoritative price for your engagement.</p>
+
+        <h2>1. Managed services plans</h2>
+        <p>Plans are priced per user, per month. A user is a person we support, whether they have a company computer or only a managed account.</p>
+        <table class="rs-table">
+          <caption>Per user, per month, excluding GST. One-year term.</caption>
+          <thead>
+            <tr><th>Plan</th><th>Seats</th><th>Rate</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Starter</td><td>10 to 19</td><td>$99</td></tr>
+            <tr><td>Business</td><td>20 to 40</td><td>$250</td></tr>
+            <tr><td>Enterprise</td><td>40 or more</td><td>$599</td></tr>
+          </tbody>
+        </table>
+        <p>Minimum user counts apply to each plan: 10 on Starter, 20 on Business, and 40 on Enterprise. Enterprise is quoted for your environment, and the rate shown is the starting point for that conversation.</p>
+        <p>Every plan includes onboarding and migration support, access to our Melbourne help desk during business hours, and continuous monitoring and alerting. The plan cards on our pricing page list what each plan includes.</p>
+
+        <h2>2. Terms, and how the monthly rate comes down</h2>
+        <p>One year is the minimum term, and the one-year rate is the highest monthly rate we charge. There is no month-to-month or shorter-term rate.</p>
+        <p>Committing for longer fixes a lower monthly rate for the whole term. Each rate below is a percentage below the one-year rate for the same plan.</p>
+        <table class="rs-table">
+          <caption>Term discount, applied to the one-year rate.</caption>
+          <thead>
+            <tr><th>Term</th><th>Monthly rate</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1 year (minimum term)</td><td>Standard rate</td></tr>
+            <tr><td>2 years</td><td>4% below standard</td></tr>
+            <tr><td>3 years</td><td>8% below standard</td></tr>
+            <tr><td>5 years</td><td>16% below standard</td></tr>
+          </tbody>
+        </table>
+        <p>A rate fixed for a term stays fixed for that term, other than the annual increase in section 3. The term ladder appears on your Proposal with your own numbers on it.</p>
+
+        <h2>3. Annual increase</h2>
+        <p>Where your Agreement runs for more than one year, your monthly fee increases by 3% on each anniversary after the first year. This is stated in your Agreement, so it arrives as a known part of the term and not as a surprise.</p>
+
+        <h2>4. Minimum engagement and seat changes</h2>
+        <p>The minimum monthly engagement is $990 excluding GST. Below that we will re-scope the work, or quote it as work outside an Agreement at the rates in section 5.</p>
+        <p>Because plans are priced per user, your monthly fee moves with your headcount. Tell us about starters and departures and we adjust the next invoice.</p>
+
+        <h2>5. Work outside your plan: hourly rates</h2>
+        <p>Work that is not covered by your plan is Out of Scope Work, and is charged at these rates. The same rates apply to managed clients and to one-off work.</p>
+        <table class="rs-table">
+          <caption>Per hour, excluding GST.</caption>
+          <thead>
+            <tr><th>Work</th><th>Rate</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Remote or bench work, per hour</td><td>$150</td></tr>
+            <tr><td>On-site work, per hour</td><td>$160</td></tr>
+            <tr><td>Outside Business Hours, per hour</td><td>Double ($300 remote, $320 on-site)</td></tr>
+            <tr><td>Victorian public holidays, per hour</td><td>Double ($300 remote, $320 on-site)</td></tr>
+            <tr><td>Emergency Upgrade, per hour</td><td>Double ($300 remote, $320 on-site)</td></tr>
+          </tbody>
+        </table>
+        <p>Business Hours means 8:00am to 6:00pm on a Business Day, and a Business Day is a day that is not a Saturday, Sunday or public holiday in Victoria.</p>
+        <p>Remote work has a 30 minute minimum and is then charged in 15 minute increments. On-site work has a one hour minimum and is then charged in 30 minute increments. There is no separate trip or travel charge, because travel is part of the on-site rate.</p>
+        <p><strong>Emergency Upgrade.</strong> If you ask us to work a Service Request above the priority it would otherwise be classified as, or you lodge it through one of the escalation contacts in your Agreement, it is charged at the emergency rate of double the applicable hourly rate.</p>
+        <p>On-site work beyond the allowance included in your Agreement is charged at the on-site hourly rate. Project and one-time work, such as a migration, an equipment install or an office move, is quoted to you upfront from these rates before the work starts.</p>
+
+        <h2>6. Third-party products</h2>
+        <p>Licences and subscriptions we procure for you are charged at cost plus 10%, shown as a single line covering procurement, licence management and vendor liaison.</p>
+        <p>Hardware and equipment is quoted separately for each engagement, before you commit to it.</p>
+        <p>Where your Agreement sets a different arrangement for a particular product, your Agreement applies.</p>
+
+        <h2>7. Onboarding</h2>
+        <p>Onboarding and migration work is quoted for your environment as part of your Proposal, and it is separate from your monthly fee. Where we discount that fee, the discount is stated against the full fee, and the amount discounted may become payable if your Agreement ends early, as set out in your Agreement.</p>
+
+        <h2>8. Invoicing and payment</h2>
+        <p>8.1 Monthly fees are invoiced in advance and are payable within 14 days of the invoice date, unless your Agreement says otherwise.</p>
+        <p>8.2 Amounts are in Australian dollars and exclude GST. GST is added where it applies.</p>
+        <p>8.3 You can pay however you like. Our rates carry the cost of payment processing, so there is no card surcharge and no discount for paying another way.</p>
+        <p>8.4 If an invoice is not paid, we may suspend the services once it is 30 or more days overdue and after we have given you 10 Business Days' written warning. Fees continue to accrue while services are suspended, and we may charge interest on overdue amounts and our reasonable costs of recovery.</p>
+        <p>8.5 If you dispute an invoice, tell us in writing within 14 days. Pay the part you do not dispute, and we will work through the rest with you.</p>
+
+        <h2>9. Changes to this schedule</h2>
+        <p>We may vary this schedule from time to time as our costs, our services and our Vendors change. The version that applies to you is the one published on the date you accept our Proposal. Where a change materially and adversely affects you, we give you at least 30 days' written notice before it takes effect, and you may end your Agreement in accordance with its terms.</p>
+
+        <h2>10. Questions, and version</h2>
+        <p>Questions about a rate go to <a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a> or <a href="tel:+61391231929">(03) 9123 1929</a>.</p>
+        <p>Version 1.0, effective 6 October 2026.</p>
+
+        <p>This schedule is a working document reviewed with our legal advisers. It is not legal advice to you.</p>
+
+        <p style="margin-top:var(--md-space-2xl);">
+          <a href="/" class="md-button md-button--text">← Back to home</a>
+          &nbsp;&nbsp;
+          <a href="/contact/" class="md-button md-button--outlined">Contact Us →</a>
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="md-footer">
+  <div class="md-container">
+    <div class="md-footer__grid">
+      <div class="md-footer__brand">
+        <img src="/assets/logo.svg" alt="Prismera" width="36" height="36">
+        <p>Managed IT and cybersecurity for Melbourne businesses, founded in Melbourne in 2026. Your data at rest stays in Australia, and a local team you can call looks after it.</p>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Services</h4>
+        <div class="md-footer__links">
+          <a href="/platform/">The Platform</a>
+          <a href="/services/">Managed IT</a>
+          <a href="/services/">Cybersecurity</a>
+          <a href="/services/">Cloud Solutions</a>
+          <a href="/services/">Digital Strategy</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Company</h4>
+        <div class="md-footer__links">
+          <a href="/about-us/">About Us</a>
+          <a href="/pricing/">Pricing</a>
+          <a href="/how-we-work/">How We Work</a>
+          <a href="/areas-we-serve/">Areas We Serve</a>
+          <a href="/blog/">Blog</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/general-terms-and-conditions/">General Terms &amp; Conditions</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Contact</h4>
+        <div class="md-footer__links">
+          <a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a>
+          <a href="tel:+61391231929">(03) 9123 1929</a>
+          <span style="color:var(--md-on-surface-muted);font-size:var(--md-font-label)">Melbourne, Australia</span>
+        </div>
+      </div>
+    </div>
+    <div class="md-footer__bottom">
+      <p>&copy; 2026 Prismera. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
