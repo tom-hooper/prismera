@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The General Terms and Conditions that apply to Prismera's managed IT and cybersecurity services, alongside your Agreement.">
+  <title>General Terms and Conditions - Prismera</title>
+
+  <link rel="stylesheet" href="/css/material.css">
+
+  <style>
+    .privacy-page { max-width: 740px; margin: 0 auto; padding: var(--md-space-3xl) var(--md-space-lg); }
+    .privacy-page h1 { font-size: var(--md-font-headline); line-height: 1.25; margin-bottom: var(--md-space-md); }
+    .privacy-page h2 { font-size: 1.5rem; margin: var(--md-space-2xl) 0 var(--md-space-md); padding-top: var(--md-space-lg); border-top: 1px solid var(--md-outline); }
+    .privacy-page p { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); }
+    .privacy-page ul, .privacy-page ol { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); padding-left: 1.5rem; }
+    .privacy-page ul li, .privacy-page ol li { margin-bottom: var(--md-space-sm); }
+    .privacy-page strong { color: var(--md-on-surface); }
+    .privacy-meta { color: var(--md-on-surface-muted); font-size: var(--md-font-label); margin-bottom: var(--md-space-xl); }
+    @media (max-width: 600px) {
+      .privacy-page h1 { font-size: 1.75rem; }
+      .privacy-page p, .privacy-page ul, .privacy-page ol { font-size: var(--md-font-body); }
+    }
+  </style>
+
+  <link rel="icon" href="/assets/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/favicon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C9CMHS94L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-2C9CMHS94L");
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yqtmv9b4bw");
+  </script>
+</head>
+<body>
+
+<header class="md-header">
+  <div class="md-container md-header__inner">
+    <a href="/" class="md-header__logo">
+      <img src="/assets/logo.svg" alt="Prismera" width="40" height="40">
+      Prismera
+    </a>
+    <button class="md-hamburger" id="nav-toggle" aria-label="Toggle navigation">
+      <span class="md-hamburger__icon"></span>
+    </button>
+    <nav class="md-nav" id="main-nav">
+      <a href="/" class="md-nav__link" data-page="home">Home</a>
+      <a href="/about-us/" class="md-nav__link" data-page="about-us">About Us</a>
+      <a href="/services/" class="md-nav__link" data-page="services">Services</a>
+      <a href="/platform/" class="md-nav__link" data-page="platform">Platform</a>
+      <a href="/reviews/" class="md-nav__link" data-page="reviews">Client Stories</a>
+      <a href="/pricing/" class="md-nav__link" data-page="pricing">Pricing</a>
+      <a href="/contact/" class="md-nav__link" data-page="contact">Contact</a>
+      <div class="md-nav__cta">
+        <a href="tel:+61391231929" class="md-nav__phone">(03) 9123 1929</a>
+        <a href="/health-check/" class="md-button md-button--filled">Free IT Health Check</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+(function() {
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() { nav.classList.toggle('md-nav--open'); });
+  }
+  var path = window.location.pathname.replace(/\/$/, '') || '/';
+  document.querySelectorAll('.md-nav__link[data-page]').forEach(function(link) {
+    var page = link.getAttribute('data-page');
+    if ((page === 'home' && path === '/') || (page !== 'home' && path.indexOf('/' + page) === 0)) {
+      link.classList.add('md-nav__link--active');
+    }
+  });
+})();
+</script>
+
+<div class="md-body">
+
+  <section class="md-hero md-hero--page" style="background: rgba(47,74,58,0.92), url('/assets/img/network.jpg') center/cover no-repeat;">
+    <div class="md-container md-hero__content">
+      <h1>General Terms and Conditions</h1>
+      <p>The terms that apply to the services we provide, alongside your Agreement</p>
+    </div>
+  </section>
+
+  <section class="md-section md-section--surface">
+    <div class="md-container">
+      <div class="privacy-page">
+
+        <p class="privacy-meta">Version 1.0. Last updated: 5 October 2026</p>
+
+        <p>Prismera Pty Ltd (ABN TBC) of 7 Kyra Close, Lilydale VIC 3140. In these terms, "we", "us" and "our" mean Prismera Pty Ltd, and "you" and "your" mean the business that has engaged us. These General Terms and Conditions apply to the services we provide to you, and to any work we do for you without a signed Agreement.</p>
+
+        <p>This page is written to be read alongside your Agreement. If a term appears both here and in your Agreement, the term in your Agreement overrides this page.</p>
+
+        <h2>1. About these terms</h2>
+        <p>1.1 These General Terms and Conditions (the <strong>General Terms</strong>) set out how we provide services to you, and what we each need to do.</p>
+        <p>1.2 Your <strong>Agreement</strong> is the contract you have signed with us, together with the Proposal you have accepted (your <strong>Proposal</strong>) and anything else we agree with you in writing. Defined terms that appear in capital letters and are not defined in these General Terms have the meaning given to them in your Agreement.</p>
+        <p>1.3 These General Terms are additional to your Agreement. If a term appears in both and they conflict, the term in your Agreement overrides these General Terms.</p>
+        <p>1.4 The version of these General Terms that applies to you is the one published on this page on the date you accept our Proposal. We may update them from time to time, as described in section 23.</p>
+        <p>1.5 If you have signed an Agreement with us, you have agreed to these General Terms. If you are using our break-fix services without an Agreement, these General Terms apply to that work.</p>
+
+        <h2>2. What the words mean</h2>
+        <p><strong>Agreement</strong> means your contract with us for Services and Goods, including your Proposal and these General Terms.</p>
+        <p><strong>Business Day</strong> means a day that is not a Saturday, Sunday or public holiday in Victoria.</p>
+        <p><strong>Business Hours</strong> means 8:00am to 6:00pm on a Business Day, by reference to Australian Eastern time (AEST or AEDT as it applies on the day).</p>
+        <p><strong>Emergency Upgrade</strong> means a request to have a Service Request worked at a higher priority than it would otherwise be classified, or a Service Request lodged through one of the escalation contacts. It is charged at the Emergency Upgrade rate on our Rate Schedule.</p>
+        <p><strong>Minimum Standards</strong> means the hardware and software requirements published in our Recommended Technology Platform and updated by us from time to time.</p>
+        <p><strong>Out of Scope Work</strong> means anything not included in your Agreement. What is included is set out in Appendix C of your Agreement.</p>
+        <p><strong>Priority</strong> means the Critical, High, Medium or Low classification of a Service Request.</p>
+        <p><strong>Rate Schedule</strong> means our schedule of rates, charges and conditions, published on our website and varied by us from time to time.</p>
+        <p><strong>Recommended Technology Platform</strong> means the list of supported software and hardware published on our website and updated by us from time to time.</p>
+        <p><strong>Service Request</strong> means any request for work you ask us to perform, or that we perform proactively on your behalf.</p>
+        <p><strong>Time</strong> means the time we spend on your Service Requests, recorded against a Service Request.</p>
+        <p><strong>Vendors</strong> means the third parties who supply products or services to you that we need to work with, such as your internet, domain, hosting, telephony and software providers.</p>
+
+        <h2>3. Business Hours and after-hours support</h2>
+        <p>3.1 Our service desk operates 8:00am to 6:00pm, Monday to Friday, excluding Victorian public holidays. A request lodged outside those hours is not lodged during Business Hours.</p>
+        <p>3.2 Call <a href="tel:+61391231929">(03) 9123 1929</a> at any hour for something critical. Outside Business Hours that number forwards to our on-call phone, and after-hours support is intended for Critical issues such as a security incident or an outage affecting your business.</p>
+        <p>3.3 We confirm the after-hours arrangement in writing during your onboarding, along with how to reach on-call.</p>
+        <p>3.4 Anything that is not Critical, and that arrives outside Business Hours, is acknowledged and actioned on the next Business Day.</p>
+        <p>3.5 Work performed outside Business Hours, and work performed on a Victorian public holiday, is charged at the multipliers stated in your Agreement.</p>
+
+        <h2>4. How to lodge a Service Request</h2>
+        <p>4.1 You can reach our service desk in these ways:</p>
+        <ul>
+          <li><strong>By phone:</strong> <a href="tel:+61391231929">(03) 9123 1929</a></li>
+          <li><strong>By email:</strong> <a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a></li>
+          <li><strong>Through the service desk portal:</strong> where we have provided you with one</li>
+        </ul>
+        <p>4.2 <strong>Critical and High priority Service Requests must be lodged by phone.</strong> If a Critical or High priority issue is lodged by email or through the portal, the response time guarantee applies to it at our Medium priority level instead, as set out in your Agreement.</p>
+        <p>4.3 A useful report tells us what is not working, since when, how many people are affected, what changed recently, and who the best person to contact is. The clearer the report, the faster we can start.</p>
+        <p>4.4 You tell us who is authorised to lodge Service Requests on your behalf, and you keep that list current. Everything we receive is recorded against your Agreement.</p>
+        <p>4.5 The escalation contacts in your Agreement exist so you can escalate a Service Request that is not progressing. They are not a way to lodge a request, and a Service Request lodged through one of those channels is treated as an Emergency Upgrade, charged at the Emergency Upgrade rate on our Rate Schedule.</p>
+        <p>4.6 You authorise us to act on Service Requests we receive from your authorised people, and you agree to make your team aware of any restriction you have on who may lodge them.</p>
+
+        <h2>5. Priorities</h2>
+        <p>5.1 We classify every Service Request as Critical, High, Medium or Low, based on business impact and whether a workaround exists.</p>
+        <ul>
+          <li><strong>Critical.</strong> Your business is stopped, or there is an active security incident, with no workaround. A main server offline and nobody able to work, email down company-wide, suspected ransomware or account compromise.</li>
+          <li><strong>High.</strong> A team is blocked, or one person is fully down in a time-critical role. Accounting locked out on payroll day, a shared drive down for a team, your internet crawling site-wide.</li>
+          <li><strong>Medium.</strong> One person is impaired but working, or a problem is intermittent and not blocking. One person's email client misbehaving, a printer down with another available, a slow laptop.</li>
+          <li><strong>Low.</strong> Questions, requests, routine changes and scheduled work. A new user setup, a software install, a how-to question, moving equipment.</li>
+        </ul>
+        <p>5.2 Any suspected security compromise is treated as Critical, whatever its apparent size.</p>
+        <p>5.3 We make the final call on priority, and we may reclassify a request as we learn more. If you want a request worked as Critical when it would otherwise be classified lower, you can ask for an Emergency Upgrade.</p>
+
+        <h2>6. Response times and service credits</h2>
+        <p>6.1 The guaranteed maximum response times for your engagement are set out in Appendix A of your Agreement. Where your Agreement states a response time, that time governs.</p>
+        <p>6.2 Response Time is measured from the moment we are first notified of a Service Request in accordance with section 4, to the moment we begin providing service on it. Triage, scheduling and dispatch are not counted.</p>
+        <p>6.3 If a Service Request is lodged outside Business Hours, the response time guarantee does not apply and we work on it on a best-effort basis.</p>
+        <p>6.4 If we miss a guaranteed response time, and you reported the Service Request as set out in section 4, you may claim a credit in writing within 7 days of the incident. The credit and any cap on it are set out in your Agreement.</p>
+        <p>6.5 The response time guarantee does not apply to the exclusions listed in Appendix B of your Agreement. Those exclusions include additions, moves and changes to users, devices, configurations or networks; issues lodged other than as set out in section 4; issues lodged outside Business Hours; items caused by hardware or software that does not meet our Minimum Standards; software that is not on the approved software list; issues caused by not acting on our advice or recommendations; and issues caused by you or a third party modifying systems without telling us.</p>
+
+        <h2>7. What is included, and what is not</h2>
+        <p>7.1 The services covered by your Agreement are listed in Appendix C of your Agreement.</p>
+        <p>7.2 Anything not listed there is Out of Scope Work, and is charged at the rates on our Rate Schedule. From time to time we may help with something outside your Agreement at no charge, at our discretion.</p>
+        <p>7.3 Scheduled site visits are as set out in your Agreement. Further on-site work is either covered by the on-site allowance included in your Agreement or charged at our rates.</p>
+        <p>7.4 Work outside an Agreement is quoted at our break-fix rates, with a minimum monthly engagement of $990 excluding GST.</p>
+
+        <h2>8. Fees, rates and payment</h2>
+        <p>8.1 The fees for your engagement are set out in your Proposal and your Agreement.</p>
+        <p>8.2 Unless your Agreement says otherwise, monthly fees are invoiced in advance and are payable within 14 days of the invoice date.</p>
+        <p>8.3 Fees are stated in Australian dollars and exclude GST unless stated otherwise. GST is added where it applies.</p>
+        <p>8.4 You can pay how you like. Our prices carry the cost of payment processing, so there is no card surcharge and no discount for paying another way.</p>
+        <p>8.5 Hourly work is charged at the rates on our Rate Schedule. Work performed outside Business Hours is charged at double the applicable hourly rate, and work performed on a Victorian public holiday is charged at double the applicable hourly rate.</p>
+        <p>8.6 Third-party licences and subscriptions we procure for you are charged at cost plus 10%, shown as a single line covering procurement, licence management and vendor liaison. Where your Agreement sets a different arrangement for a particular product, your Agreement applies.</p>
+        <p>8.7 Onboarding and migration work is quoted separately from your monthly fee. Where that fee is discounted, the discount is stated against the full fee, and the waived amount may become payable if your Agreement ends early, as set out in your Agreement.</p>
+        <p>8.8 If an invoice is not paid, we may suspend the services once it is 30 or more days overdue and after we have given you 10 Business Days' written warning. Suspension is not termination: fees continue to accrue while services are suspended, and we may charge interest on overdue amounts and our reasonable costs of recovery.</p>
+        <p>8.9 If you dispute an invoice, tell us in writing within 14 days. Pay the part you do not dispute, and we will work through the rest with you. We will not suspend services over an amount that is genuinely in dispute while we are resolving it.</p>
+
+        <h2>9. Changes to your fees</h2>
+        <p>9.1 Where your Agreement runs for more than one year, your monthly fee increases by 3% on each anniversary after the first year, as stated in your Agreement.</p>
+        <p>9.2 We give you at least 30 days' written notice of any other change to your fees. If a change materially and adversely affects you, you may end your Agreement in accordance with its terms.</p>
+
+        <h2>10. What you need to do</h2>
+        <p>10.1 You agree to:</p>
+        <ul>
+          <li>nominate a Primary IT Contact and a Secondary IT Contact, and keep their details current;</li>
+          <li>make sure your team knows who is authorised to lodge Service Requests;</li>
+          <li>give us full and free access to your systems, equipment, premises and people as needed, and tell us about anything that interferes with that access;</li>
+          <li>keep your environment on our Minimum Standards, and tell us before introducing hardware or software that may fall outside them;</li>
+          <li>hold valid licences for everything you run, and tell us before installing software that is not on the approved list;</li>
+          <li>authorise us with your Vendors where we need it to support you, and tell us if that authorisation changes;</li>
+          <li>report issues promptly and accurately;</li>
+          <li>tell us in advance about changes that affect the services, such as new staff, sites, systems or significant projects;</li>
+          <li>tell us before you or anyone else makes changes to the systems we manage;</li>
+          <li>keep your own copies of anything you cannot afford to lose; and</li>
+          <li>make sure your systems are used lawfully and in line with the Vendors' terms.</li>
+        </ul>
+        <p>10.2 If something you do, or do not do, means we cannot meet our commitments, our response time guarantee does not apply to the affected Service Requests. We may also charge for the extra time incurred in restoring access, as set out in your Agreement.</p>
+
+        <h2>11. Monitoring, remote access and consent</h2>
+        <p>11.1 You agree to us monitoring and remotely managing your environment as part of the services, including by installing and running agent software on managed devices. You confirm you are authorised to give us that access.</p>
+        <p>11.2 We use monitoring and management data to deliver the services, to keep your environment secure, to keep records of what we do, and to improve how we work. Our <a href="/privacy-policy/">Privacy Policy</a> explains how personal information is handled.</p>
+        <p>11.3 We reach your systems remotely rather than reading the contents of your files. Where we need to look at your data to resolve an issue, we do so only as needed for that purpose, for security, or where the law requires it.</p>
+
+        <h2>12. Data, backups and recovery</h2>
+        <p>12.1 Backups are run and monitored as described in your Agreement and in our published commitments. Restores are tested periodically, and a backup failure is raised with you as a High priority issue.</p>
+        <p>12.2 Backups are kept for the retention period stated in your Agreement. Once that period passes, those copies are no longer available.</p>
+        <p>12.3 We are not an insurer of your data. We cannot promise that a system or a backup will always be recoverable, and you should keep your own copies of anything you cannot afford to reconstruct.</p>
+        <p>12.4 You are responsible for the accuracy, quality and completeness of your data, and for telling us which systems must be protected.</p>
+
+        <h2>13. Security incidents</h2>
+        <p>13.1 Tell us immediately by phone on <a href="tel:+61391231929">(03) 9123 1929</a> if you suspect a security compromise. Do not wait for Business Hours, and do not attempt to remediate a ransomware event yourself.</p>
+        <p>13.2 We may isolate affected systems, disable accounts, revoke sessions and take other steps reasonably necessary to contain and investigate an incident. We will tell you what we are doing and why.</p>
+        <p>13.3 We never advise paying a ransom, and we will not negotiate with or pay an attacker. Decisions about payment, insurance and law enforcement belong to you, and we will support you in them.</p>
+        <p>13.4 An incident may trigger notification obligations, including under the Notifiable Data Breaches scheme. We will work with you on the technical facts you need, and you take the notifications the law requires of you.</p>
+        <p>13.5 Please preserve evidence. Do not wipe and rebuild a compromised machine before we have the picture, because the record of what happened is often what protects you.</p>
+
+        <h2>14. Third-party products and services</h2>
+        <p>14.1 Many of the products we manage are supplied by Vendors under their own terms. Where we supply or arrange one of those products, the Vendor's terms apply to it, and we pass through to you the benefit of any warranty or support entitlement the Vendor provides.</p>
+        <p>14.2 We support the way a Vendor's product is configured and used in your environment. Where you have authorised us, we manage the relationship with the Vendor on your behalf, including raising support cases where your entitlement allows.</p>
+        <p>14.3 Vendors change their products, their prices and their availability. We cannot promise that a Vendor will keep offering a product, or at what price.</p>
+        <p>14.4 Where you engage a third party to work on your environment, tell us. We are not responsible for what they change, and unsupported changes may fall outside your Agreement.</p>
+
+        <h2>15. Intellectual property</h2>
+        <p>15.1 We own our tools, scripts, processes, know-how, templates and documentation, together with everything we build on them, whether it existed before your engagement or came out of it.</p>
+        <p>15.2 You own your data, your systems and your own intellectual property.</p>
+        <p>15.3 You are responsible for making sure any material you give us does not infringe anyone else's rights.</p>
+
+        <h2>16. Confidentiality and privacy</h2>
+        <p>16.1 Each of us keeps the other's confidential information confidential, uses it only for the services, and discloses it only to people who need it and are bound to keep it confidential. This does not apply to information that is public, that the law requires us to disclose, or that we need to disclose to enforce our rights.</p>
+        <p>16.2 We handle personal information in accordance with the <strong>Privacy Act 1988 (Cth)</strong> and the <strong>Australian Privacy Principles</strong>. Our <a href="/privacy-policy/">Privacy Policy</a> explains what we collect, why, how it is stored, and how to make a complaint.</p>
+        <p>16.3 We keep your information for as long as we need it to provide the services, to meet our legal obligations, and to keep records of the work we have done. Where data is stored or processed outside Australia by a Vendor we have engaged, our Privacy Policy explains that disclosure.</p>
+        <p>16.4 If a data breach occurs that is likely to result in serious harm, we work with you on the obligations that apply under the Notifiable Data Breaches scheme.</p>
+        <p>16.5 Privacy complaints can be made to us under our Privacy Policy, and then to the Office of the Australian Information Commissioner.</p>
+
+        <h2>17. Subcontractors and assignment</h2>
+        <p>17.1 We may use subcontractors to deliver the services. Each one is bound by confidentiality obligations at least as protective as these General Terms, and we stay responsible for their work as if it were our own.</p>
+        <p>17.2 Neither of us may assign an Agreement without the other's written consent, except to a successor in a merger or a sale of substantially all of our business or assets.</p>
+
+        <h2>18. Liability</h2>
+        <p>18.1 To the extent the law allows, our total liability to you under or in connection with an Agreement, whether in contract, tort, negligence, statute or otherwise, is limited to the total fees you have paid or that are payable to us in the six months before the event that gave rise to the claim.</p>
+        <p>18.2 We are not liable for indirect or consequential loss, loss of profit, loss of revenue, loss of anticipated savings, loss of goodwill, or the cost of substitute services, however it arises.</p>
+        <p>18.3 Our services come with guarantees that cannot be excluded under the Australian Consumer Law. Nothing in these General Terms excludes, restricts or modifies those guarantees. Where the law allows us to limit our liability for a breach of such a guarantee, our liability is limited, at our option, to resupplying the services or paying the cost of having them resupplied.</p>
+        <p>18.4 You indemnify us against claims, losses and costs arising from your data, from your use of the services in a way that breaks the law or the terms of a Vendor, and from any failure by you to hold the licences and authorisations the services assume you hold.</p>
+        <p>18.5 Any claim relating to an Agreement must be brought within one year of the date the claim could reasonably have been made.</p>
+        <p>18.6 We are not liable for the outcome of a decision you make, or decline to make, after we have given you advice or a recommendation.</p>
+
+        <h2>19. Suspension and termination</h2>
+        <p>19.1 Either of us may terminate an Agreement if the other commits a material breach of it and does not fix that breach within 30 days of written notice describing it.</p>
+        <p>19.2 We may suspend services under section 8.8 while an invoice remains unpaid. Suspension is not termination, and your obligations continue while services are suspended.</p>
+        <p>19.3 If you end your Agreement before the end of your Commitment Term, the amount that applies is calculated as set out in your Agreement.</p>
+        <p>19.4 We may end an Agreement immediately if you become insolvent, or if continuing to provide the services would require us to break the law.</p>
+        <p>19.5 When an Agreement ends, we hand back your data and the configurations we built for you in line with the offboarding commitments in your Agreement, and you pay the fees due for services provided up to the end date. Each of us may keep copies where the law requires it, or where we need it to enforce our rights.</p>
+        <p>19.6 The clauses that survive termination are the ones that by their nature should, including confidentiality, privacy, intellectual property, liability, indemnity, payment obligations, the claim period and dispute resolution.</p>
+
+        <h2>20. Events outside our control</h2>
+        <p>20.1 Neither of us is liable for a failure or delay caused by something beyond our reasonable control, such as a natural disaster, an outage or fault in a telecommunications network or a cloud service, a cyber attack on a third party, industrial action, or government action.</p>
+        <p>20.2 Where such an event occurs, we tell you promptly, take reasonable steps to reduce its effect, and resume the services as soon as we reasonably can.</p>
+
+        <h2>21. Notices</h2>
+        <p>21.1 We give you notices in writing, by email to your Primary IT Contact, or through the service desk portal where you have one.</p>
+        <p>21.2 You give us notices in writing, by email to <a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a>, or by post to Prismera Pty Ltd, 7 Kyra Close, Lilydale VIC 3140.</p>
+        <p>21.3 Termination notices must be in writing and sent as described in your Agreement.</p>
+
+        <h2>22. Complaints and escalation</h2>
+        <p>22.1 If something is not right, tell your usual contact first. Most things are fixed there and then.</p>
+        <p>22.2 If it is not resolved, escalate through the contacts in your Agreement: our Team Leader, then our Service Manager, and then our Managing Director.</p>
+        <p>22.3 Privacy complaints follow our <a href="/privacy-policy/">Privacy Policy</a> and, if you are not satisfied, can be taken to the Office of the Australian Information Commissioner.</p>
+
+        <h2>23. Changes to these General Terms</h2>
+        <p>23.1 We may update these General Terms from time to time as our services, our Vendors or the law change. The current version is published on this page, with the date it took effect.</p>
+        <p>23.2 The version that applies to you is the one published on the date you accept our Proposal, or the version you and we agree in writing applies.</p>
+        <p>23.3 Where a change materially and adversely affects you, we give you at least 30 days' notice before it takes effect, and you may end your Agreement in accordance with its terms.</p>
+
+        <h2>24. Governing law and disputes</h2>
+        <p>24.1 An Agreement and these General Terms are governed by the laws of Victoria, Australia.</p>
+        <p>24.2 If a dispute arises, we will both try to resolve it in good faith, starting with the people closest to it. If it is not resolved within 30 days, either of us may refer it to arbitration with its seat in Melbourne, Victoria.</p>
+        <p>24.3 Either of us may go to court for an unpaid invoice, or to seek an injunction or other urgent relief, without going through the process in section 24.2 first.</p>
+
+        <h2>25. Contact us</h2>
+        <p>Prismera Pty Ltd (ABN TBC)<br>7 Kyra Close, Lilydale VIC 3140<br><a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a><br><a href="tel:+61391231929">(03) 9123 1929</a></p>
+
+        <h2>26. Version</h2>
+        <p>Version 1.0, effective 5 October 2026.</p>
+
+        <p>These General Terms are working documents reviewed with our legal advisers. They are not legal advice to you.</p>
+
+        <p style="margin-top:var(--md-space-2xl);">
+          <a href="/" class="md-button md-button--text">← Back to home</a>
+          &nbsp;&nbsp;
+          <a href="/contact/" class="md-button md-button--outlined">Contact Us →</a>
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="md-footer">
+  <div class="md-container">
+    <div class="md-footer__grid">
+      <div class="md-footer__brand">
+        <img src="/assets/logo.svg" alt="Prismera" width="36" height="36">
+        <p>Managed IT and cybersecurity for Melbourne businesses, founded in Melbourne in 2026. Your data at rest stays in Australia, and a local team you can call looks after it.</p>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Services</h4>
+        <div class="md-footer__links">
+          <a href="/platform/">The Platform</a>
+          <a href="/services/">Managed IT</a>
+          <a href="/services/">Cybersecurity</a>
+          <a href="/services/">Cloud Solutions</a>
+          <a href="/services/">Digital Strategy</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Company</h4>
+        <div class="md-footer__links">
+          <a href="/about-us/">About Us</a>
+          <a href="/pricing/">Pricing</a>
+          <a href="/how-we-work/">How We Work</a>
+          <a href="/areas-we-serve/">Areas We Serve</a>
+          <a href="/blog/">Blog</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/general-terms-and-conditions/">General Terms &amp; Conditions</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Contact</h4>
+        <div class="md-footer__links">
+          <a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a>
+          <a href="tel:+61391231929">(03) 9123 1929</a>
+          <span style="color:var(--md-on-surface-muted);font-size:var(--md-font-label)">Melbourne, Australia</span>
+        </div>
+      </div>
+    </div>
+    <div class="md-footer__bottom">
+      <p>&copy; 2026 Prismera. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
