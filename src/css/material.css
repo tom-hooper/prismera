@@ -1759,6 +1759,15 @@ textarea.md-form-input {
   color: var(--md-on-surface-variant);
 }
 
+/* Accent panel: tinted card used to carry a descriptor and its CTA */
+.md-card--accent {
+  background: var(--md-primary-container);
+  border: 1px solid rgba(47, 74, 58, 0.16);
+}
+.md-card--accent .md-card__body {
+  color: var(--md-on-primary-container);
+}
+
 .md-rag-list {
   list-style: none;
   margin: 0;
