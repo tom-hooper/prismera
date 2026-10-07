@@ -1719,3 +1719,83 @@ textarea.md-form-input {
 .md-nav__phone:hover {
   color: var(--md-primary);
 }
+
+/* ========================================
+   HOMEPAGE: SMB QUESTION TABLE + SAMPLE FINDINGS (2026-10-07)
+   ======================================== */
+
+.md-qa-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--md-surface);
+  border-radius: var(--md-shape-lg);
+  overflow: hidden;
+  box-shadow: var(--md-elevation-1);
+}
+.md-qa-table th,
+.md-qa-table td {
+  text-align: left;
+  padding: var(--md-space-md) var(--md-space-lg);
+  border-bottom: 1px solid var(--md-outline-variant);
+  vertical-align: top;
+}
+.md-qa-table thead th {
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+  font-size: var(--md-font-label);
+  font-weight: var(--md-font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.md-qa-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.md-qa-table td:first-child {
+  font-weight: var(--md-font-weight-semibold);
+  color: var(--md-on-surface);
+  width: 38%;
+}
+.md-qa-table td:last-child {
+  color: var(--md-on-surface-variant);
+}
+
+.md-rag-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--md-space-sm);
+}
+.md-rag-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--md-space-md);
+  padding: var(--md-space-sm) var(--md-space-md);
+  background: var(--md-surface-variant);
+  border-radius: var(--md-shape-sm);
+  font-size: var(--md-font-label);
+  color: var(--md-on-surface);
+}
+.md-rag-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+.md-rag-dot--red { background-color: var(--md-error); }
+.md-rag-dot--amber { background-color: #C8862F; }
+.md-rag-dot--green { background-color: var(--md-success); }
+
+@media (max-width: 640px) {
+  .md-qa-table th,
+  .md-qa-table td {
+    padding: var(--md-space-sm) var(--md-space-md);
+    font-size: var(--md-font-small);
+  }
+  .md-qa-table td:first-child {
+    width: 42%;
+  }
+}
