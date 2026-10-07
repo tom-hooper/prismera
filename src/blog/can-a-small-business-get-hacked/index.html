@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Yes, and the Australian data shows how it happens. What the ACSC, the Australian Institute of Criminology and the OAIC report about attacks on small business, what they cost, and what to fix first.">
+  <title>Can a Small Business Actually Get Hacked? - Prismera Blog</title>
+
+  <link rel="stylesheet" href="/css/material.css">
+
+  <style>
+    .blog-article { max-width: 740px; margin: 0 auto; padding: var(--md-space-3xl) var(--md-space-lg); }
+    .blog-article h1 { font-size: var(--md-font-headline); line-height: 1.25; margin-bottom: var(--md-space-md); }
+    .blog-article h2 { font-size: 1.5rem; margin: var(--md-space-2xl) 0 var(--md-space-md); padding-top: var(--md-space-lg); border-top: 1px solid var(--md-outline); }
+    .blog-article h3 { font-size: 1.15rem; margin: var(--md-space-lg) 0 var(--md-space-sm); }
+    .blog-article p { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); }
+    .blog-article ul, .blog-article ol { font-size: var(--md-font-body-large); line-height: 1.75; color: #424242; margin-bottom: var(--md-space-lg); padding-left: 1.5rem; }
+    .blog-article ul li, .blog-article ol li { margin-bottom: var(--md-space-sm); }
+    .blog-article strong { color: var(--md-on-surface); }
+    .blog-article blockquote { border-left: 4px solid var(--md-primary); padding: var(--md-space-md) var(--md-space-lg); margin: var(--md-space-xl) 0; background: var(--md-surface-variant); border-radius: 0 var(--md-shape-sm) var(--md-shape-sm) 0; font-style: italic; color: #555; }
+    .blog-meta { color: var(--md-on-surface-muted); font-size: var(--md-font-label); margin-bottom: var(--md-space-xl); display: flex; gap: var(--md-space-lg); flex-wrap: wrap; }
+    .blog-hero-img { width: 100%; height: 360px; object-fit: cover; border-radius: var(--md-shape-lg); margin-bottom: var(--md-space-xl); box-shadow: var(--md-elevation-2); }
+    .blog-cta-box { background: var(--md-primary-container); border-radius: var(--md-shape-lg); padding: var(--md-space-xl); margin: var(--md-space-2xl) 0; text-align: center; }
+    .blog-cta-box h3 { color: var(--md-on-primary-container); margin-bottom: var(--md-space-sm); }
+    .blog-cta-box p { color: #004D40; margin-bottom: var(--md-space-lg); }
+    .sign-card { background: var(--md-surface); border: 1px solid var(--md-outline); border-radius: var(--md-shape-md); padding: var(--md-space-lg); margin-bottom: var(--md-space-lg); }
+    .sign-card h3 { display: flex; align-items: center; gap: var(--md-space-sm); margin-bottom: var(--md-space-sm); }
+    .sign-card .sign-num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--md-primary); color: white; font-size: 18px; font-weight: 700; flex-shrink: 0; }
+    @media (max-width: 600px) {
+      .blog-article h1 { font-size: 1.75rem; }
+      .blog-article p, .blog-article ul, .blog-article ol { font-size: var(--md-font-body); }
+      .blog-hero-img { height: 220px; }
+    }
+  </style>
+
+  <link rel="icon" href="/assets/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/favicon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C9CMHS94L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-2C9CMHS94L");
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yqtmv9b4bw");
+  </script>
+</head>
+<body>
+
+<header class="md-header">
+  <div class="md-container md-header__inner">
+    <a href="/" class="md-header__logo">
+      <img src="/assets/logo.svg" alt="Prismera" width="40" height="40">
+      Prismera
+    </a>
+    <button class="md-hamburger" id="nav-toggle" aria-label="Toggle navigation">
+      <span class="md-hamburger__icon"></span>
+    </button>
+    <nav class="md-nav" id="main-nav">
+      <a href="/" class="md-nav__link" data-page="home">Home</a>
+      <a href="/about-us/" class="md-nav__link" data-page="about-us">About Us</a>
+      <a href="/services/" class="md-nav__link" data-page="services">Services</a>
+      <a href="/platform/" class="md-nav__link" data-page="platform">Platform</a>
+      <a href="/reviews/" class="md-nav__link" data-page="reviews">Client Stories</a>
+      <a href="/pricing/" class="md-nav__link" data-page="pricing">Pricing</a>
+      <a href="/contact/" class="md-nav__link" data-page="contact">Contact</a>
+      <div class="md-nav__cta">
+        <a href="tel:+61391231929" class="md-nav__phone">(03) 9123 1929</a>
+        <a href="/health-check/" class="md-button md-button--filled">Free IT Health Check</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+(function() {
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() { nav.classList.toggle('md-nav--open'); });
+  }
+  var path = window.location.pathname.replace(/\/$/, '') || '/';
+  document.querySelectorAll('.md-nav__link[data-page]').forEach(function(link) {
+    var page = link.getAttribute('data-page');
+    if ((page === 'home' && path === '/') || (page !== 'home' && path.indexOf('/' + page) === 0)) {
+      link.classList.add('md-nav__link--active');
+    }
+  });
+})();
+</script>
+
+<div class="md-body">
+
+  <article class="blog-article">
+    <div class="blog-meta">
+      <span>October 2026</span>
+      <span>&middot;</span>
+      <span>8 min read</span>
+      <span>&middot;</span>
+      <span>Cybersecurity</span>
+    </div>
+
+    <h1>Can a Small Business Actually Get Hacked?</h1>
+
+    <img src="/assets/img/itsupport.jpg" alt="A small business team working at their computers" class="blog-hero-img">
+
+    <p>It is the question we are asked more often than any other, usually about ten minutes into a health check and usually phrased as an apology. Surely a business with twenty staff is not worth anybody's attention.</p>
+
+    <p>The honest answer is yes, and it does not require anyone to decide that you are worth it. Most small business incidents do not begin with a person choosing you. They begin with something you own being found.</p>
+
+    <h2>What the Australian Numbers Actually Say</h2>
+
+    <p>The Australian Cyber Security Centre, part of the Australian Signals Directorate, received more than 84,700 cybercrime reports in the 2024-25 financial year, an average of one every six minutes, and responded to more than 1,200 incidents itself, an 11% increase on the year before.</p>
+
+    <p>Smaller businesses carry a disproportionate share of the cost. In the ACSC's Annual Cyber Threat Report 2024-25, the average self-reported cost of cybercrime per report was <strong>$56,600 for a small business</strong>, up 14% in a year, against $97,200 for a medium business and $202,700 for a large one. Those are self-reported averages rather than audited costs, so read them as an order of magnitude.</p>
+
+    <p>The Australian Institute of Criminology's Cybercrime in Australia 2024 survey found that an estimated 22.2% of small and medium business owners, operators and managers said cybercrime had affected their business in the previous 12 months. Among those who were victims, 42% reported at least one impact on the business: disruption to everyday operations for 25.6%, additional business expenses for 15.3%, plus reputation, revenue and information loss.</p>
+
+    <p>The notified breaches behind the headlines point the same way. The Office of the Australian Information Commissioner received 1,205 data breach notifications in the 2025 calendar year, the highest number since the scheme began in 2018, and 716 of them were attributed to malicious or criminal activity.</p>
+
+    <h2>"We're Too Small To Be Worth Targeting"</h2>
+
+    <p>That belief causes more damage than any single piece of unpatched software. It assumes an attacker drawing up a shortlist, and most incidents do not work that way.</p>
+
+    <p>The ACSC describes many cyber incidents as opportunistic in nature. Its reporting also documents an active market in initial access brokerage, where access to a victim network, credentials included, is advertised on the dark web with the business's sector, country and revenue listed, and priced low enough that a criminal with no particular skill can buy their way in.</p>
+
+    <p>The criminology data undercuts the idea that being small protects you. Small and medium business owners, operators and managers reported significantly higher rates of every type of cybercrime than other survey respondents. Scale did not make them invisible. It made them easier, because a business with nothing watching has no way to notice a stranger in its mail.</p>
+
+    <p>None of this asks you to be selected. Scanning for exposed services and known vulnerabilities runs across the whole internet, and stolen credentials get tried in bulk. Your exposure is found by a machine.</p>
+
+    <h2>How It Actually Happens</h2>
+
+    <p>Three routes account for most of what we find.</p>
+
+    <div class="sign-card">
+      <h3><span class="sign-num">1</span> Email, and then a person</h3>
+      <p>Phishing was recorded as an initial access technique in 38% of the incidents the ACSC responded to in 2024-25, which makes it the most common way in. It is the most reported cybercrime for businesses too: email compromise with no financial loss accounted for 19% of business reports, business email compromise fraud with a loss 15%, and identity fraud 11%.</p>
+      <p><strong>Why it works:</strong> The message looks like a supplier invoice, a Microsoft 365 password notice, or a short note from the managing director asking for a favour. One click and one password typed into a lookalike page is enough to hand over a mailbox.</p>
+      <p><strong>What stops it:</strong> MFA that phishing cannot satisfy, email filtering tuned to your actual suppliers and banks, and a team that knows how to report a suspicious message in one click.</p>
+    </div>
+
+    <div class="sign-card">
+      <h3><span class="sign-num">2</span> Credentials that were already circulating</h3>
+      <p>In the incidents where data was encrypted, the ACSC found the most common route in was already-compromised credentials, paired with access through legitimate external-facing remote services.</p>
+      <p><strong>Why it works:</strong> The password is not cracked. It was reused, phished in an earlier campaign, or bought. With no MFA on remote access or on an administrator account, a valid username and password is a complete set of keys, and the login looks like an ordinary employee arriving at work.</p>
+      <p><strong>What stops it:</strong> MFA on every remote access path and every admin account, unique passwords kept in a password manager, and alerts on logins from new locations.</p>
+    </div>
+
+    <div class="sign-card">
+      <h3><span class="sign-num">3</span> The equipment that answers from the internet</h3>
+      <p>In 2024-25 the ACSC observed more than 120 incidents involving attacks on edge devices, the firewalls, VPN gateways and remote access systems that connect a business to the internet. 96% of those attacks succeeded.</p>
+      <p><strong>Why it works:</strong> Edge devices sit outside most of the protection you have bought, they can only be patched by whoever owns the patch queue, and a flaw in one is reachable from anywhere on the internet. The 2026 advisories show how wide that surface has grown: a large-scale campaign against website content management systems that hit many small and medium Australian businesses, a widespread credential exposure campaign against Fortinet firewalls and VPN gateways, active exploitation of the N-able N-central remote monitoring platform within Australia, plus exploited flaws in TeamCity, Adobe Commerce and Magento, and Citrix NetScaler. In several of those, the ACSC's advice to small and medium business was to contact their MSP or IT provider and confirm the product had been patched and was being monitored.</p>
+      <p><strong>What stops it:</strong> An inventory of everything that answers from the internet, patched within days rather than at the next maintenance window, with MFA enforced on every management interface.</p>
+    </div>
+
+    <h2>What It Costs When It Lands</h2>
+
+    <p>The $56,600 average is the part that fits in a spreadsheet. The criminology survey covers the rest: everyday operations disrupted for about a quarter of affected businesses, extra expenses for another 15%, and reputation or revenue damage and lost information for roughly one in eight.</p>
+
+    <p>What none of these surveys capture is what owners describe afterwards. A fortnight where nobody does their real job. An invoice paid twice, once to a fraudster. Six weeks of a client quietly wondering whether their files were in it.</p>
+
+    <blockquote>
+      Businesses and organisations must operate with a mind-set of "assume compromise", and consider which assets or "crown jewels" need the most protection.
+    </blockquote>
+
+    <p>That is the ACSC's own framing in its Annual Cyber Threat Report 2024-25, and it is the right starting point for a business of any size.</p>
+
+    <h2>What Actually Moves The Needle</h2>
+
+    <p>The ACSC's guidance for organisations comes down to a short list, and none of it is exotic: logging good enough to reconstruct an incident, replacing or mitigating legacy technology, choosing products that are secure by design, and preparing for what follows, including post-quantum cryptography and AI-enabled attacks. Its Cyber Security Action Month campaign, running this October under the theme "Take a second. Stay secure.", gives the everyday version of the same advice: apply the updates, keep backups, switch on multi-factor authentication, use long unique passwords, and know how to report a scam.</p>
+
+    <p>Translated into what matters first for a business of 10 to 40 seats:</p>
+
+    <ol>
+      <li><strong>Turn on MFA everywhere, starting with remote access, email and admin accounts.</strong> Most of the advice above keeps coming back to this one control.</li>
+      <li><strong>Know what answers from the internet, and patch it within days.</strong> Firewall, VPN, website, remote access tool. A monthly maintenance window is too slow when exploitation follows disclosure by days.</li>
+      <li><strong>Test a restore, not just a backup.</strong> An untested backup is a hope. A business that recovers in a day has a different story to tell than one that spends three weeks guessing.</li>
+      <li><strong>Filter email, and make reporting easy.</strong> One click for your staff, with somebody at the other end who acts on it.</li>
+      <li><strong>Reduce admin rights, and remove access the day someone leaves.</strong> Most accounts holding the keys to everything never needed them.</li>
+    </ol>
+
+    <p>One more is worth adding: ask your IT provider what tools they run on your network and how they patch them. The ACSC has spent most of 2026 asking small and medium businesses to do exactly that.</p>
+
+    <h2>The Short Answer</h2>
+
+    <p>Yes. Small Australian businesses are hit in volume, the entry points are unglamorous, and being small changes the odds less than most owners assume.</p>
+
+    <p>What sits in your control is how an incident ends. Tested backups, MFA, patched internet-facing systems and somebody watching the alerts decide whether it is a bad afternoon or a bad quarter, and whether you find out from your own logs or from a customer.</p>
+
+    <div class="blog-cta-box">
+      <h3>Want to know where your business actually stands?</h3>
+      <p>Our free 30-minute health check reviews endpoint security, backups, Microsoft 365 configuration and the gaps in your current support. You get a one-page report in plain English, Red, Amber and Green. No obligation, no pitch.</p>
+      <a href="/health-check/" class="md-button md-button--filled md-button--large">Book Your Free Health Check</a>
+    </div>
+
+    <p style="margin-top:var(--md-space-2xl);">
+      <a href="/blog/" class="md-button md-button--text">← Back to all articles</a>
+      &nbsp;&nbsp;
+      <a href="/services/" class="md-button md-button--outlined">See Our Services →</a>
+    </p>
+
+
+    </article>
+
+</div>
+
+<footer class="md-footer">
+  <div class="md-container">
+    <div class="md-footer__grid">
+      <div class="md-footer__brand">
+        <img src="/assets/logo.svg" alt="Prismera" width="36" height="36">
+        <p>Managed IT and cybersecurity for Melbourne businesses, founded in Melbourne in 2026. Your data at rest stays in Australia, and a local team you can call looks after it.</p>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Services</h4>
+        <div class="md-footer__links">
+          <a href="/platform/">The Platform</a>
+          <a href="/services/">Managed IT</a>
+          <a href="/services/">Cybersecurity</a>
+          <a href="/services/">Cloud Solutions</a>
+          <a href="/services/">Digital Strategy</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Company</h4>
+        <div class="md-footer__links">
+          <a href="/about-us/">About Us</a>
+          <a href="/pricing/">Pricing</a>
+          <a href="/how-we-work/">How We Work</a>
+          <a href="/areas-we-serve/">Areas We Serve</a>
+          <a href="/blog/">Blog</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/general-terms-and-conditions/">General Terms &amp; Conditions</a>
+          <a href="/recommended-technology-platform/">Recommended Technology Platform</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="md-footer__heading">Contact</h4>
+        <div class="md-footer__links">
+          <a href="mailto:hello@prismera.com.au">hello@prismera.com.au</a>
+          <a href="tel:+61391231929">(03) 9123 1929</a>
+          <span style="color:var(--md-on-surface-muted);font-size:var(--md-font-label)">Melbourne, Australia</span>
+        </div>
+      </div>
+    </div>
+    <div class="md-footer__bottom">
+      <p>&copy; 2026 Prismera. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
