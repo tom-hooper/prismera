@@ -384,12 +384,44 @@
     }
   ],
   "priceRange": "$$",
-  "serviceType": [
-    "Managed IT support",
-    "Cybersecurity",
-    "Backup and disaster recovery",
-    "Microsoft 365 and cloud"
-  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Managed IT and cybersecurity services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Managed IT support",
+          "serviceType": "Managed IT support"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Cybersecurity",
+          "serviceType": "Cybersecurity"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Backup and disaster recovery",
+          "serviceType": "Backup and disaster recovery"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Microsoft 365 and cloud",
+          "serviceType": "Microsoft 365 and cloud"
+        }
+      }
+    ]
+  },
   "founder": {
     "@type": "Person",
     "name": "Tom Hooper"
